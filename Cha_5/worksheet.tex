@@ -1,0 +1,23 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.7in}
+\newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}\newcommand{\initial}[1]{{\Large #1}}\newcommand{\result}[1]{\par\leftskip=0pt\medskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}\renewcommand{\textbf}[1]{\result{#1}}
+\newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
+\title{Determinants}\author{T.T.}\date{}
+\begin{document}\maketitle
+\begin{chaptermap}\itshape Determinants assign a signed volume and test invertibility. Their defining properties yield row-operation rules, cofactor expansions, permutation formulas, and inverse formulas.\end{chaptermap}
+\topic{\initial{D}EFINITION AND \initial{P}ROPERTIES}
+\[\det I=1,\qquad \det(AB)=\det(A)\det(B),\qquad A\text{ invertible}\Longleftrightarrow\det A\ne0.\]
+\textbf{Row rules:} swapping rows changes the sign; multiplying a row by $c$ multiplies the determinant by $c$; adding a multiple of one row to another leaves it unchanged.
+\textbf{Linearity:} the determinant is linear in each row (or column) separately and alternating in its rows.
+\[\det(A^T)=\det A,\qquad \det(A^{-1})=(\det A)^{-1},\qquad \det(cA)=c^n\det A.\]
+\topic{\initial{C}OMPUTATIONAL \initial{F}ORMULAE}
+\textbf{Triangular matrices:} $\det A=\prod_{i=1}^n a_{ii}$.
+\[\det A=\sum_{j=1}^n a_{ij}C_{ij}=\sum_{i=1}^n a_{ij}C_{ij},\quad C_{ij}=(-1)^{i+j}\det A_{ij}.\]
+\textbf{Cofactor formula:} $\displaystyle A^{-1}=\frac{1}{\det A}\operatorname{Cof}(A)^T$.
+\[\det A=\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\prod_{i=1}^n a_{i,\sigma(i)}.\]
+\textbf{Cramer's rule:} if $Ax=b$ and $\det A\ne0$, $\displaystyle x_i=\frac{\det A_i(b)}{\det A}$.
+\textbf{Vandermonde determinant:} $\displaystyle \det[x_j^{,i-1}]_{i,j=1}^n=\prod_{1\leq i<j\leq n}(x_j-x_i)$.
+\topic{\initial{G}EOMETRY AND \initial{V}OLUME}
+\[\operatorname{volume}(A[0,1]^n)=|\det A|,\qquad \det A=0\Longleftrightarrow\text{columns lie in a lower-dimensional subspace}.\]
+\end{document}

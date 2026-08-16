@@ -1,0 +1,23 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.7in}
+\newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}\newcommand{\initial}[1]{{\Large #1}}\newcommand{\result}[1]{\par\leftskip=0pt\smallskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}\renewcommand{\textbf}[1]{\result{#1}}
+\newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
+\title{Orthogonality}\author{T.T.}\date{}
+\begin{document}\maketitle
+\begin{chaptermap}\itshape Orthogonality decomposes vectors and subspaces. Projections lead to orthogonal bases and least squares; the four fundamental subspaces describe the complete geometry of $Ax=b$.\end{chaptermap}
+\topic{\initial{O}RTHOGONAL \initial{C}OMPLEMENTS}
+\[V\perp W\Longleftrightarrow v^Tw=0\ \forall v\in V,w\in W,\qquad S^\perp=\{x:x^Ts=0\ \forall s\in S\}.\]
+\[\mathcal R(A)=\mathcal N(A)^\perp,\quad \mathcal N(A)=\mathcal R(A)^\perp,\quad \mathcal C(A)=\mathcal N(A^T)^\perp.\]
+\[\mathbb R^n=\mathcal R(A)\oplus\mathcal N(A),\qquad x=x_r+x_n.\]
+\topic{\initial{P}ROJECTIONS}
+\textbf{Projection onto a line:} $\displaystyle \operatorname{proj}_a b=\frac{a^Tb}{a^Ta}a$.
+\[b=p+e,\quad p=\operatorname{proj}_a b,\quad e\perp a,\quad \|b\|^2=\|p\|^2+\|e\|^2.\]
+\textbf{Projection matrix:} $P=\frac{aa^T}{\|a\|^2}$, $P^2=P$, $P^T=P$.
+\textbf{Orthonormal columns:} $Q^TQ=I$, and projection onto $\mathcal C(Q)$ is $P=QQ^T$.
+\topic{\initial{L}EAST \initial{S}QUARES}
+\textbf{Normal equations:} $A^TA\hat x=A^Tb$; residual $e=b-A\hat x$ satisfies $A^Te=0$.
+\[\hat x=(A^TA)^{-1}A^Tb,\qquad p=A\hat x=P b.\]
+\textbf{Gram--Schmidt:} $q_1=a_1/\|a_1\|$; $\displaystyle v_k=a_k-\sum_{j<k}(q_j^Ta_k)q_j$, $q_k=v_k/\|v_k\|$.
+\textbf{QR factorization:} $A=QR$, where $Q^TQ=I$ and $R$ is upper triangular.
+\end{document}

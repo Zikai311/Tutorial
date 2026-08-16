@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.7in}
+\newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}\newcommand{\initial}[1]{{\Large #1}}\newcommand{\result}[1]{\par\leftskip=0pt\medskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}\renewcommand{\textbf}[1]{\result{#1}}
+\newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
+\title{Vector Spaces and Subspaces}\author{T.T.}\date{}
+\begin{document}\maketitle
+\begin{chaptermap}\itshape Vector spaces generalize coordinate vectors. Subspaces are closed under linear combinations; column and null spaces record the action of a matrix, while bases and dimension measure independent directions.\end{chaptermap}
+\topic{\initial{S}PACES AND \initial{S}UBSPACES}
+\textbf{Subspace test:} $S\le V$ iff $0\in S$ and $u,v\in S$, $c,d\in\mathbb R$ imply $cu+dv\in S$.
+\[\mathcal C(A)=\{Ax:x\in\mathbb R^n\}=\operatorname{span}\{a_1,\ldots,a_n\},\quad \mathcal N(A)=\{x:Ax=0\}.\]
+\[\mathcal R(A)=\operatorname{row}(A),\qquad \mathcal N(A^T)=\operatorname{left\ nullspace}(A).\]
+\textbf{Basis theorem:} a basis is an independent spanning set. Every vector has a unique coordinate representation $v=\sum c_iq_i$.
+\[\dim S=\text{number of vectors in any basis of }S.\]
+\textbf{Dimension theorem:} $\dim\mathcal C(A)=\operatorname{rank}(A)=\dim\mathcal R(A)$.
+\topic{\initial{R}ANK AND \initial{N}ULLITY}
+\textbf{Rank--nullity theorem:} for $A:m\times n$, $\dim\mathcal N(A)+\operatorname{rank}(A)=n$.
+\[\dim\mathcal C(A)+\dim\mathcal N(A^T)=m.\]
+\textbf{Four-subspace dimension relations:} $\dim\mathcal R(A)=\dim\mathcal C(A)=r$, $\dim\mathcal N(A)=n-r$, $\dim\mathcal N(A^T)=m-r$.
+\textbf{Fundamental theorem:} $\mathcal R(A)\perp\mathcal N(A)$ and $\mathcal C(A)\perp\mathcal N(A^T)$.
+\[\operatorname{rank}(AB)\leq\min(\operatorname{rank}A,\operatorname{rank}B),\quad \operatorname{rank}(A+B)\leq\operatorname{rank}A+\operatorname{rank}B.\]
+\end{document}

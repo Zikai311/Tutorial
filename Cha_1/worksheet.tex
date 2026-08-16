@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.65in}
+\newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}
+\newcommand{\initial}[1]{{\Large #1}}
+\newcommand{\question}[1]{\par\leftskip=0pt\medskip\noindent{\bfseries Q#1.}\par\nobreak\leftskip=1em\noindent}
+\newcommand{\subquestion}[2]{\par\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{(#1)}\hspace{0.5em}#2\par}
+\newcommand{\result}[1]{\par\leftskip=0pt\medskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}
+\renewcommand{\textbf}[1]{\result{#1}}
+\newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
+\title{Introduction to Vectors}\author{T.T.}\date{}
+\begin{document}\maketitle\vspace{-1em}
+\begin{chaptermap}\itshape Vectors are combined linearly; the dot product supplies length, angle, and orthogonality; matrices encode linear combinations and linear equations; independence and invertibility connect geometry with algebra.\end{chaptermap}
+\topic{\initial{V}ECTORS AND \initial{L}INEAR \initial{C}OMBINATIONS}
+\[v+w=(v_1+w_1,\ldots,v_n+w_n),\qquad cv=(cv_1,\ldots,cv_n).\]
+\textbf{Linear combination and span:} For $v_1,\ldots,v_n\in\mathbb R^m$ and $c_1,\ldots,c_n\in\mathbb R$, the vector $\sum_{j=1}^n c_jv_j$ is a linear combination. Its possible values form
+\[\operatorname{span}\{v_1,\ldots,v_n\}=\bigl\{\sum_{j=1}^n c_jv_j:c_j\in\mathbb R\bigr\}.\]
+\textbf{Matrix form:} If $A=\begin{bmatrix}a_1&\cdots&a_n\end{bmatrix}$ and $x=(x_1,\ldots,x_n)^T$, then $x_j$ is the coefficient of the $j$th column $a_j$:
+\[Ax=\sum_{j=1}^n x_ja_j=b.\]
+\textbf{Linear dependence theorem:} $v_1,\ldots,v_n$ are dependent iff $\sum_{j=1}^n c_jv_j=0$ for coefficients $c_j\in\mathbb R$ that are not all zero.
+\topic{\initial{D}OT \initial{P}RODUCTS AND \initial{G}EOMETRY}
+\[v\cdot w=v^Tw=\sum_{i=1}^n v_iw_i,\qquad \|v\|=\sqrt{v\cdot v}.\]
+\textbf{Cosine formula:} for nonzero $v,w$, $\displaystyle\cos\theta=\frac{v\cdot w}{\|v\|\|w\|}$.
+\textbf{Cauchy--Schwarz inequality:} $|v\cdot w|\leq\|v\|\|w\|$.
+\textbf{Triangle inequality:} $\|v+w\|\leq\|v\|+\|w\|$.
+\textbf{Pythagorean theorem:} $v\cdot w=0\Rightarrow\|v+w\|^2=\|v\|^2+\|w\|^2$.
+\[\|v-w\|^2=\|v\|^2-2v\cdot w+\|w\|^2.\]
+\topic{\initial{M}ATRICES AND \initial{E}QUATIONS}
+\textbf{Invertibility criterion (square case):} $A$ is invertible iff $Ax=0$ has only $x=0$ iff its columns are independent; then $x=A^{-1}b$.
+\[AB=(Ab_1\ \cdots\ Ab_p),\quad (AB)^T=B^TA^T,\quad A(I)=A.\]
+\newpage
+\setlength{\parindent}{0pt}
+\topic{\initial{P}ROBLEM \initial{S}ET}
+\question{1} Let $v=(v_1,v_2)$ and $w=(w_1,w_2)$ be nonzero vectors with $v_1w_1\neq0$. Suppose the product of the slopes of the lines joining the origin to $v$ and $w$ is $-1$. Show that $v\cdot w=0$, and hence that the vectors are perpendicular.
+
+\question{2}
+\subquestion{i}{Let $A\in\mathbb R^{m\times n}$ and $x\in\mathbb R^n$. For each $i$, let $r_i\in\mathbb R^n$ be the column vector whose transpose $r_i^T$ is the $i$th row of $A$. If $Ax=0$, show that $r_i\cdot x=0$ for every $i$.}
+
+\subquestion{ii}{Hence explain why, when the rows span a plane in $\mathbb R^3$, that plane is perpendicular to $x$.}
+
+\question{3}
+\subquestion{i}{For
+\[
+A=\begin{bmatrix}1&0&0\\-1&1&0\\1&-1&1\end{bmatrix},
+\]
+solve $Ax=b$ for an arbitrary $b=(b_1,b_2,b_3)^T$.}
+
+\subquestion{ii}{State the inverse matrix $A^{-1}$.}
+
+\question{4}
+\subquestion{i}{Find two different combinations of the three vectors $u=(1,3)$, $v=(2,7)$, and $w=(1,5)$ that produce $b=(0,1)$.}
+
+\subquestion{ii}{Show that, for any three vectors in the plane, if one combination produces $b$, then there are infinitely many distinct linear combinations that produce $b$.}
+
+\question{5} Let $x,y,z$ be real numbers, not all zero, satisfying $x+y+z=0$. Set $v=(x,y,z)$ and $w=(z,x,y)$. Find the angle between $v$ and $w$ by showing that
+\[\frac{v\cdot w}{\|v\|\|w\|}=-\frac12.\]
+
+\question{6} Let $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ be a $2\times2$ real matrix. Prove that the rows of $A$ are linearly dependent if and only if the columns of $A$ are linearly dependent.
+
+\question{7}
+\subquestion{i}{Show that there cannot be three nonzero, mutually orthogonal vectors in $\mathbb R^2$.}
+
+\subquestion{ii}{Show that there are at most $n$ nonzero, mutually orthogonal vectors in $\mathbb R^n$.}
+
+\subquestion{iii}{\textit{Optional.} Fix a small angle $\varepsilon>0$. Make a conjecture about the growth, as $n$ increases, of the maximum number of unit vectors that can be placed in $\mathbb R^n$ such that every pair forms an acute angle between $90^\circ-\varepsilon$ and $90^\circ$.}
+
+\question{8}
+\subquestion{i}{Let $u$ and $v$ be independent unit vectors chosen uniformly from the unit circle in $\mathbb R^2$. Find the mean value of $|u\cdot v|$.}
+
+\subquestion{ii}{\textit{Optional.} Repeat the calculation for independent unit vectors chosen uniformly from the unit sphere in $\mathbb R^3$. Does the comparison support your conjecture in Q7(iii)?}
+
+\begin{quote}\itshape
+Hint: If a continuous random variable $X$ has probability density function $f_X$, then
+\[
+\mathbb E[g(X)]=\int g(x)f_X(x)\,dx.
+\]
+By rotational symmetry, one vector may be fixed; determine the distribution of the dot product using spherical surface area.
+\end{quote}
+\end{document}

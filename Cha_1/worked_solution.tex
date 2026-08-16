@@ -1,0 +1,199 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.85in}
+\newcommand{\solutionquestion}[1]{\par\leftskip=0pt\section*{Q#1}\leftskip=1em}
+\newcommand{\solutionpart}[1]{\par\medskip\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{\textbf{(#1)}}\hspace{0.5em}\ignorespaces}
+\title{Introduction to Vectors}\author{T.T.}\date{}
+\begin{document}\maketitle
+\solutionquestion{1}
+The slopes are $v_2/v_1$ and $w_2/w_1$. The hypothesis gives
+\[
+\frac{v_2}{v_1}\frac{w_2}{w_1}=-1.
+\]
+Since $v_1w_1\ne0$, multiplication by $v_1w_1$ is valid and yields
+\[
+v_2w_2=-v_1w_1.
+\]
+Therefore
+\[
+v\cdot w=v_1w_1+v_2w_2=0.
+\]
+By the definition of orthogonality, $v$ and $w$ are perpendicular.
+
+\solutionquestion{2}
+\solutionpart{i}For each $i$, let $r_i\in\mathbb R^n$ be a column vector such that $r_i^T$ is the $i$th row of $A$. Writing $A$ row by row gives
+\[
+A=\begin{bmatrix}r_1^T\\\vdots\\r_m^T\end{bmatrix}.
+\]
+Therefore
+\[
+Ax=\begin{bmatrix}r_1^Tx\\\vdots\\r_m^Tx\end{bmatrix}
+=\begin{bmatrix}r_1\cdot x\\\vdots\\r_m\cdot x\end{bmatrix}.
+\]
+If $Ax=0$, every component of this vector is zero, so
+\[
+r_i\cdot x=0\qquad(i=1,\ldots,m).
+\]
+Thus every row is perpendicular to $x$.
+
+\solutionpart{ii}Any linear combination of the rows is also perpendicular to $x$, because
+\[
+\left(\sum_i c_ir_i\right)\cdot x=\sum_i c_i(r_i\cdot x)=0.
+\]
+If the rows span a plane, every vector in that plane is perpendicular to $x$. Hence the plane is perpendicular to $x$.
+
+\solutionquestion{3}
+\solutionpart{i}The equations in $Ax=b$ are
+\[
+x_1=b_1,\qquad -x_1+x_2=b_2,\qquad x_1-x_2+x_3=b_3.
+\]
+They can be solved from top to bottom:
+\[
+x_1=b_1,\qquad x_2=b_1+b_2,\qquad x_3=b_2+b_3.
+\]
+Thus
+\[
+x=\begin{bmatrix}b_1\\b_1+b_2\\b_2+b_3\end{bmatrix}.
+\]
+
+\solutionpart{ii}Writing the preceding solution as $x=A^{-1}b$ gives
+\[
+A^{-1}=
+\begin{bmatrix}
+1&0&0\\
+1&1&0\\
+0&1&1
+\end{bmatrix}.
+\]
+
+\solutionquestion{4}
+\solutionpart{i}We seek $c,d,e$ such that
+\[
+c(1,3)+d(2,7)+e(1,5)=(0,1).
+\]
+Equating components gives
+\[
+c+2d+e=0,\qquad 3c+7d+5e=1.
+\]
+There are two free choices. Taking $e=0$ gives $c=-2d$ and then $d=1$, so one combination is
+\[
+-2u+v=b.
+\]
+Taking $d=0$ gives $c=-e$ and $2e=1$, so another is
+\[
+-\frac12u+\frac12w=b.
+\]
+
+\solutionpart{ii}For the general statement, three vectors in the plane are linearly dependent. Thus there are scalars $\alpha,\beta,\gamma$, not all zero, such that
+\[
+\alpha u+\beta v+\gamma w=0.
+\]
+If $(c_0,d_0,e_0)$ produces $b$, then for every real $t$,
+\[
+(c_0+t\alpha)u+(d_0+t\beta)v+(e_0+t\gamma)w=b+t0=b.
+\]
+Distinct values of $t$ give infinitely many distinct coefficient triples.
+
+\solutionquestion{5}
+Because $x,y,z$ are not all zero, $v\ne0$; then $w\ne0$ because $w$ is a permutation of the components of $v$. We have
+\[
+v\cdot w=xz+xy+yz.
+\]
+Squaring $x+y+z=0$ gives
+\[
+x^2+y^2+z^2+2(xy+yz+zx)=0,
+\]
+so
+\[
+v\cdot w=-\frac12(x^2+y^2+z^2).
+\]
+Since $w$ is a permutation of $v$,
+\[
+\|v\|^2=\|w\|^2=x^2+y^2+z^2.
+\]
+Consequently,
+\[
+\frac{v\cdot w}{\|v\|\|w\|}=-\frac12.
+\]
+Thus the angle is
+\[
+\theta=\arccos\left(-\frac12\right)=120^\circ.
+\]
+
+\solutionquestion{6}
+Suppose first that the rows of $A$ are dependent. If the second row is zero, then $c=d=0$ and the columns are
+\[
+\begin{bmatrix}a\\0\end{bmatrix},
+\qquad
+\begin{bmatrix}b\\0\end{bmatrix},
+\]
+which are both multiples of $\begin{bmatrix}1\\0\end{bmatrix}$. Hence they are dependent.
+
+Otherwise, there is a scalar $\lambda$ such that
+\[
+(a,b)=\lambda(c,d).
+\]
+The columns can then be written as
+\[
+\begin{bmatrix}a\\c\end{bmatrix}
+=\begin{bmatrix}\lambda c\\c\end{bmatrix}
+=c\begin{bmatrix}\lambda\\1\end{bmatrix},
+\qquad
+\begin{bmatrix}b\\d\end{bmatrix}
+=\begin{bmatrix}\lambda d\\d\end{bmatrix}
+=d\begin{bmatrix}\lambda\\1\end{bmatrix}.
+\]
+Thus both columns are scalar multiples of the same vector, so the columns are dependent. No division by a matrix entry is required.
+
+Conversely, suppose the columns of $A$ are dependent. Those columns are the rows of $A^T$. Applying the implication just proved to $A^T$ shows that the columns of $A^T$ are dependent. Those columns are precisely the rows of $A$. Hence the rows are dependent, completing the proof.
+
+\solutionquestion{7}
+\solutionpart{i}Suppose first that $u$ and $v$ are nonzero orthogonal vectors in $\mathbb R^2$. They point in two independent directions and therefore span the plane. If a vector $w$ is orthogonal to both, write
+\[
+w=\alpha u+\beta v.
+\]
+Taking dot products with $u$ and $v$ gives
+\[
+w\cdot u=\alpha\|u\|^2=0,
+\qquad
+w\cdot v=\beta\|v\|^2=0.
+\]
+Since $u$ and $v$ are nonzero, $\alpha=\beta=0$, so $w=0$. Thus a third vector orthogonal to both $u$ and $v$ must be zero. Therefore three nonzero mutually orthogonal vectors cannot exist in $\mathbb R^2$.
+
+\solutionpart{ii}Let $v_1,\ldots,v_k$ be nonzero mutually orthogonal vectors in $\mathbb R^n$. We first show that they are linearly independent. If
+\[
+c_1v_1+\cdots+c_kv_k=0,
+\]
+then taking the dot product with $v_j$ gives
+\[
+c_j\|v_j\|^2=0.
+\]
+Because $v_j\ne0$, this implies $c_j=0$. The same argument applies for every $j$, so all coefficients are zero. Hence $v_1,\ldots,v_k$ are linearly independent. Since an $n$-dimensional space has at most $n$ linearly independent vectors, $k\leq n$.
+
+\solutionpart{iii}\textit{Optional.} Let $M_n(\varepsilon)$ denote the largest number of unit vectors with all pairwise angles in $(90^\circ-\varepsilon,90^\circ)$. A plausible conjecture is that, for each fixed $\varepsilon>0$, $M_n(\varepsilon)$ grows exponentially with $n$. The motivation is that high-dimensional spaces contain many directions that are almost orthogonal. The exact orthogonality condition permits only $n$ nonzero vectors, by part (ii), but allowing a fixed small departure from $90^\circ$ should permit substantially more vectors. Nevertheless, establishing a sharp formula belongs to the theory of spherical codes and is beyond the scope of this worksheet.
+
+\solutionquestion{8}
+\solutionpart{i}Rotational symmetry allows us to fix $u=(1,0)$. If $\theta$ is the angle from $u$ to $v$, then $u\cdot v=\cos\theta$. The mean absolute dot product is therefore
+\[
+\mathbb E|u\cdot v|
+=\frac1\pi\int_0^\pi|\cos\theta|\,d\theta
+=\frac2\pi.
+\]
+Thus the mean absolute dot product in $\mathbb R^2$ is $\boxed{2/\pi}$.
+
+\solutionpart{ii}\textit{Optional.} In $\mathbb R^3$, rotational symmetry allows us to fix $u=(0,0,1)$. A uniformly distributed point on the unit sphere has surface area element $\sin\theta\,d\theta\,d\phi$. A horizontal spherical band between heights $z$ and $z+dz$ has area $2\pi\,dz$, independent of $z$. Since the total sphere has area $4\pi$, the random variable
+\[
+Z=u\cdot v
+\]
+is uniformly distributed on $[-1,1]$, with density $f_Z(z)=\tfrac12$.
+
+Using the expectation formula from the hint,
+\[
+\mathbb E|u\cdot v|
+=\mathbb E|Z|
+=\int_{-1}^{1}|z|\frac12\,dz
+=\frac12.
+\]
+Thus the mean absolute dot product is $\boxed{\tfrac12}$.
+Because $1/2<2/\pi$, randomly chosen unit vectors are, on average, closer to right angles in $\mathbb R^3$ than in $\mathbb R^2$. This supports the intuition behind Q7(iii), although it does not prove the conjecture: Q7(iii) additionally requires every pair in a large collection to form an acute angle.
+\end{document}
