@@ -16,12 +16,14 @@ Cha1
 -
 
 Cha2
-- 
--
--
--
--
--
+- 2.2 Q1--2 combined
+- 2.2 Q11
+- 2.3 Q3--4 combined
+- 2.4 Q6
+- 2.5 Q7--8 combined
+- 2.5 Q23
+- 2.6 Q3--4 combined
+- 2.7 Q2, Q12, and Q39 combined
 
 Cha3
 - 

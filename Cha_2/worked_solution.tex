@@ -1,0 +1,406 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.85in}
+\newcommand{\solutionquestion}[1]{\par\leftskip=0pt\section*{Q#1}\leftskip=1em}
+\newcommand{\solutionpart}[1]{\par\smallskip\leftskip=1em\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{\textbf{(#1)}}\hspace{0.5em}\ignorespaces}
+\newcommand{\solutioncontinuation}{\par\leftskip=3em\noindent\ignorespaces}
+\title{Solving Linear Equations}\author{T.T.}\date{}
+\begin{document}\maketitle
+
+\solutionquestion{1}
+\solutionpart{i}The first pivot is $2$. To eliminate $x$ from the second equation, subtract five times the first equation from the second:
+\[
+\begin{aligned}
+2x+3y&=1,\\
+(10x+9y)-5(2x+3y)&=11-5.
+\end{aligned}
+\]
+Therefore the upper triangular system is
+\[
+2x+3y=1,\qquad -6y=6.
+\]
+The two pivots are $2$ and $-6$.
+
+\solutionpart{ii}Back substitution gives $y=-1$. The first equation then gives
+\[
+2x+3(-1)=1,
+\]
+so $x=2$. In column form,
+\[
+2\begin{bmatrix}2\\10\end{bmatrix}
+-\begin{bmatrix}3\\9\end{bmatrix}
+=\begin{bmatrix}1\\11\end{bmatrix},
+\]
+which verifies the solution.
+
+\solutionpart{iii}The coefficient matrix and the elimination multiplier are unchanged. For the new right side, the second transformed entry is
+\[
+44-5(4)=24.
+\]
+Thus $-6y=24$, so $y=-4$. Substitution into $2x+3y=4$ gives
+\[
+2x-12=4,
+\]
+and hence $x=8$. The new solution is $(x,y)=(8,-4)$.
+
+\solutionquestion{2}
+\solutionpart{i}Since $x_1$ and $x_2$ are solutions,
+\[
+Ax_1=b,\qquad Ax_2=b.
+\]
+For any $t\in\mathbb R$, linearity gives
+\[
+\begin{aligned}
+A\bigl((1-t)x_1+tx_2\bigr)
+&=(1-t)Ax_1+tAx_2\\
+&=(1-t)b+tb=b.
+\end{aligned}
+\]
+Therefore $(1-t)x_1+tx_2$ is also a solution.
+
+\solutionpart{ii}Because $x_1\ne x_2$, the vectors $(1-t)x_1+tx_2$ are distinct for distinct values of $t$. Indeed,
+\[
+(1-t_1)x_1+t_1x_2=(1-t_2)x_1+t_2x_2
+\]
+would imply
+\[
+(t_1-t_2)(x_2-x_1)=0,
+\]
+and therefore $t_1=t_2$. Hence two distinct solutions generate an entire line of solutions. A linear system can have no solution, one solution, or infinitely many solutions, but it cannot have exactly two.
+
+\solutionquestion{3}
+\solutionpart{i}The multiplier for the entry $a_{21}=4$ is $4$, so
+\[
+E_{21}=\begin{bmatrix}
+1&0&0\\
+-4&1&0\\
+0&0&1
+\end{bmatrix}.
+\]
+\solutioncontinuation{} The multiplier for $a_{31}=-2$ is $-2$. Subtracting $-2$ times row 1 is the same as adding twice row 1, so
+\[
+E_{31}=\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+2&0&1
+\end{bmatrix}.
+\]
+\solutioncontinuation{} After these two steps,
+\[
+E_{31}E_{21}A
+=\begin{bmatrix}
+1&1&0\\
+0&2&1\\
+0&4&0
+\end{bmatrix}.
+\]
+\solutioncontinuation{} The final multiplier is $4/2=2$, and therefore
+\[
+E_{32}=\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+0&-2&1
+\end{bmatrix}.
+\]
+
+\solutionpart{ii}Multiplying the elimination matrices in the order in which they act gives
+\[
+M=E_{32}E_{31}E_{21}
+=\begin{bmatrix}
+1&0&0\\
+-4&1&0\\
+10&-2&1
+\end{bmatrix}.
+\]
+Then
+\[
+MA=
+\begin{bmatrix}
+1&0&0\\
+-4&1&0\\
+10&-2&1
+\end{bmatrix}
+\begin{bmatrix}
+1&1&0\\
+4&6&1\\
+-2&2&0
+\end{bmatrix}
+=\begin{bmatrix}
+1&1&0\\
+0&2&1\\
+0&0&-2
+\end{bmatrix}
+=U.
+\]
+
+\solutionpart{iii}The transformed right side is
+\[
+Mb=
+\begin{bmatrix}
+1&0&0\\
+-4&1&0\\
+10&-2&1
+\end{bmatrix}
+\begin{bmatrix}1\\0\\0\end{bmatrix}
+=\begin{bmatrix}1\\-4\\10\end{bmatrix}.
+\]
+Thus the triangular system is
+\[
+x+y=1,\qquad 2y+z=-4,\qquad -2z=10.
+\]
+Back substitution gives
+\[
+z=-5,\qquad y=\frac12,\qquad x=\frac12.
+\]
+Therefore
+\[
+x=\begin{bmatrix}\tfrac12\\[2pt]\tfrac12\\[2pt]-5\end{bmatrix}.
+\]
+
+\solutionquestion{4}
+\solutionpart{i}Direct multiplication gives
+\[
+AB=\begin{bmatrix}7&0\\0&0\end{bmatrix},
+\qquad
+BA=\begin{bmatrix}1&2\\3&6\end{bmatrix}.
+\]
+Since $AB\ne BA$, these matrices do not commute.
+
+\solutionpart{ii}Distributivity must be used without changing the order of the factors:
+\[
+{(A+B)}^{2}=(A+B)(A+B)=A^2+AB+BA+B^2.
+\]
+
+\solutionpart{iii}First,
+\[
+A+B=\begin{bmatrix}2&2\\3&0\end{bmatrix},
+\qquad
+{(A+B)}^{2}=\begin{bmatrix}10&4\\6&6\end{bmatrix}.
+\]
+Also $A^2=A$, $B^2=B$, and therefore
+\[
+A^2+2AB+B^2
+=\begin{bmatrix}16&2\\3&0\end{bmatrix}.
+\]
+The two results are different. In general,
+\[
+A^2+AB+BA+B^2=A^2+2AB+B^2
+\]
+if and only if $BA=AB$. Thus the scalar-style identity is valid precisely when $A$ and $B$ commute.
+
+\solutionquestion{5}
+\solutionpart{i}Write the rows of $A$ as $r_1^T,r_2^T,r_3^T$, where
+\[
+r_3^T=r_1^T+r_2^T.
+\]
+If $Ax=e_3$, where $e_3={(0,0,1)}^{T}$, then its first two equations require
+\[
+r_1^{T}x=0,\qquad r_2^{T}x=0,
+\]
+while its third equation requires $r_3^{T}x=1$. However,
+\[
+r_3^{T}x=(r_1^{T}+r_2^{T})x=r_1^{T}x+r_2^{T}x=0,
+\]
+which is a contradiction. Thus $Ax=e_3$ has no solution, so $A$ cannot be invertible.
+
+\solutioncontinuation{} For a general right side $b$, the same row relation requires
+\[
+b_3=b_1+b_2.
+\]
+Indeed, the elimination step $R_3\leftarrow R_3-R_1-R_2$ produces
+\[
+0=b_3-b_1-b_2.
+\]
+If this condition fails, the system is inconsistent. If it holds, the transformed third equation is $0=0$ and is redundant. The condition is necessary; further row relations could impose additional conditions.
+
+\solutionpart{ii}Write the columns of $A$ as $a_1,a_2,a_3$, with $a_3=a_1+a_2$. For
+\[
+x=\begin{bmatrix}-1\\-1\\1\end{bmatrix},
+\]
+we have
+\[
+Ax=-a_1-a_2+a_3=0.
+\]
+This is a nonzero solution of $Ax=0$. If $A$ were invertible, multiplication by $A^{-1}$ would imply $x=A^{-1}0=0$, a contradiction. Therefore $A$ is not invertible.
+
+\solutionquestion{6}
+Start with the augmented matrix
+\[
+[A\ I]=
+\left[
+\begin{array}{ccc@{\;\vline\;}ccc}
+2&1&0&1&0&0\\
+1&2&1&0&1&0\\
+0&1&2&0&0&1
+\end{array}
+\right].
+\]
+Apply $R_2\leftarrow2R_2$ followed by $R_2\leftarrow R_2-R_1$. Then apply $R_3\leftarrow3R_3$ followed by $R_3\leftarrow R_3-R_2$. These operations give
+\[
+\left[
+\begin{array}{ccc@{\;\vline\;}ccc}
+2&1&0&1&0&0\\
+0&3&2&-1&2&0\\
+0&0&4&1&-2&3
+\end{array}
+\right].
+\]
+Apply $R_3\leftarrow\tfrac14R_3$, then $R_2\leftarrow R_2-2R_3$, and finally $R_2\leftarrow\tfrac13R_2$:
+\[
+\left[
+\begin{array}{ccc@{\;\vline\;}ccc}
+2&1&0&1&0&0\\
+0&1&0&-\tfrac12&1&-\tfrac12\\
+0&0&1&\tfrac14&-\tfrac12&\tfrac34
+\end{array}
+\right].
+\]
+Finally, apply $R_1\leftarrow R_1-R_2$ and then divide row 1 by $2$:
+\[
+\left[
+\begin{array}{ccc@{\;\vline\;}ccc}
+1&0&0&\tfrac34&-\tfrac12&\tfrac14\\
+0&1&0&-\tfrac12&1&-\tfrac12\\
+0&0&1&\tfrac14&-\tfrac12&\tfrac34
+\end{array}
+\right].
+\]
+Therefore
+\[
+A^{-1}=\frac14
+\begin{bmatrix}
+3&-2&1\\
+-2&4&-2\\
+1&-2&3
+\end{bmatrix}.
+\]
+For verification,
+\[
+\begin{bmatrix}
+2&1&0\\
+1&2&1\\
+0&1&2
+\end{bmatrix}
+\begin{bmatrix}
+3&-2&1\\
+-2&4&-2\\
+1&-2&3
+\end{bmatrix}
+=4I,
+\]
+so $AA^{-1}=I$.
+
+\solutionquestion{7}
+\solutionpart{i}Subtract row 1 from rows 2 and 3. The first-column multipliers are
+\[
+\ell_{21}=1,\qquad \ell_{31}=1.
+\]
+This gives
+\[
+\begin{bmatrix}
+1&1&1\\
+0&1&2\\
+0&2&5
+\end{bmatrix}.
+\]
+Next subtract twice row 2 from row 3, so $\ell_{32}=2$. The result is
+\[
+U=\begin{bmatrix}
+1&1&1\\
+0&1&2\\
+0&0&1
+\end{bmatrix}.
+\]
+Placing the multipliers in their corresponding positions gives
+\[
+L=\begin{bmatrix}
+1&0&0\\
+1&1&0\\
+1&2&1
+\end{bmatrix}.
+\]
+Direct multiplication confirms that
+\[
+LU=
+\begin{bmatrix}
+1&1&1\\
+1&2&3\\
+1&3&6
+\end{bmatrix}=A.
+\]
+
+\solutionpart{ii}The system $Lc=b$ is
+\[
+\begin{aligned}
+c_1&=5,\\
+c_1+c_2&=7,\\
+c_1+2c_2+c_3&=11.
+\end{aligned}
+\]
+Forward substitution gives
+\[
+c=\begin{bmatrix}5\\2\\2\end{bmatrix}.
+\]
+The system $Ux=c$ is
+\[
+x_1+x_2+x_3=5,\qquad x_2+2x_3=2,\qquad x_3=2.
+\]
+Back substitution gives
+\[
+x_3=2,\qquad x_2=-2,\qquad x_1=5.
+\]
+Thus
+\[
+x=\begin{bmatrix}5\\-2\\2\end{bmatrix}.
+\]
+
+\solutionquestion{8}
+\solutionpart{i}For $1\leq i\leq p$ and $1\leq j\leq m$,
+\[
+{\bigl({(AB)}^{T}\bigr)}_{ij}={(AB)}_{ji}
+=\sum_{k=1}^{n}a_{jk}b_{ki}.
+\]
+On the other hand,
+\[
+\begin{aligned}
+{(B^{T}A^{T})}_{ij}
+&=\sum_{k=1}^{n}{(B^{T})}_{ik}{(A^{T})}_{kj}\\
+&=\sum_{k=1}^{n}b_{ki}a_{jk}.
+\end{aligned}
+\]
+The two sums are equal because real-number multiplication is commutative. Hence every entry agrees, and
+\[
+{(AB)}^{T}=B^{T}A^{T}.
+\]
+
+\solutionpart{ii}The $(i,j)$ entry of $Q^{T}Q$ is
+\[
+{(Q^{T}Q)}_{ij}=q_i^{T}q_j.
+\]
+Since $Q^{T}Q=I$,
+\[
+q_i^{T}q_j=\begin{cases}
+1,&i=j,\\
+0,&i\ne j.
+\end{cases}
+\]
+Therefore each column has length $1$, and distinct columns are orthogonal. Conversely, if the columns are unit vectors and are mutually orthogonal, the same formula shows that every entry of $Q^{T}Q$ agrees with the corresponding entry of $I$. Thus $Q^{T}Q=I$.
+
+\solutionpart{iii}For all $x,y\in\mathbb R^n$,
+\[
+{(Qx)}^{T}(Qy)=x^{T}Q^{T}Qy=x^{T}y.
+\]
+Thus $Q$ preserves dot products. Taking $y=x$ gives
+\[
+\|Qx\|^2={(Qx)}^{T}(Qx)=x^{T}x=\|x\|^2,
+\]
+so $Q$ also preserves lengths. A suitable $2\times2$ example is the rotation matrix
+\[
+Q=\begin{bmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{bmatrix}.
+\]
+Its columns have unit length and zero dot product, so $Q^{T}Q=I$ and $q_{11}=\cos\theta$.
+
+\end{document}

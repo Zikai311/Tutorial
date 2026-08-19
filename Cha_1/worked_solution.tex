@@ -2,7 +2,8 @@
 \usepackage{fontspec,amsmath,amssymb,geometry}
 \setmainfont{Times New Roman}\geometry{margin=0.85in}
 \newcommand{\solutionquestion}[1]{\par\leftskip=0pt\section*{Q#1}\leftskip=1em}
-\newcommand{\solutionpart}[1]{\par\medskip\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{\textbf{(#1)}}\hspace{0.5em}\ignorespaces}
+\newcommand{\solutionpart}[1]{\par\smallskip\leftskip=1em\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{\textbf{(#1)}}\hspace{0.5em}\ignorespaces}
+\newcommand{\solutioncontinuation}{\par\leftskip=3em\noindent\ignorespaces}
 \title{Introduction to Vectors}\author{T.T.}\date{}
 \begin{document}\maketitle
 \solutionquestion{1}
@@ -27,7 +28,7 @@ A=\begin{bmatrix}r_1^T\\\vdots\\r_m^T\end{bmatrix}.
 \]
 Therefore
 \[
-Ax=\begin{bmatrix}r_1^Tx\\\vdots\\r_m^Tx\end{bmatrix}
+Ax=\begin{bmatrix}r_1^{T}x\\\vdots\\r_m^{T}x\end{bmatrix}
 =\begin{bmatrix}r_1\cdot x\\\vdots\\r_m\cdot x\end{bmatrix}.
 \]
 If $Ax=0$, every component of this vector is zero, so
@@ -38,7 +39,7 @@ Thus every row is perpendicular to $x$.
 
 \solutionpart{ii}Any linear combination of the rows is also perpendicular to $x$, because
 \[
-\left(\sum_i c_ir_i\right)\cdot x=\sum_i c_i(r_i\cdot x)=0.
+\left(\sum_i c_i r_i\right)\cdot x=\sum_i c_i(r_i\cdot x)=0.
 \]
 If the rows span a plane, every vector in that plane is perpendicular to $x$. Hence the plane is perpendicular to $x$.
 
@@ -162,7 +163,7 @@ Since $u$ and $v$ are nonzero, $\alpha=\beta=0$, so $w=0$. Thus a third vector o
 
 \solutionpart{ii}Let $v_1,\ldots,v_k$ be nonzero mutually orthogonal vectors in $\mathbb R^n$. We first show that they are linearly independent. If
 \[
-c_1v_1+\cdots+c_kv_k=0,
+c_1v_1+\cdots+c_k v_k=0,
 \]
 then taking the dot product with $v_j$ gives
 \[
@@ -185,15 +186,15 @@ Thus the mean absolute dot product in $\mathbb R^2$ is $\boxed{2/\pi}$.
 \[
 Z=u\cdot v
 \]
-is uniformly distributed on $[-1,1]$, with density $f_Z(z)=\tfrac12$.
+\solutioncontinuation{} is uniformly distributed on $[-1,1]$, with density $f_Z(z)=\tfrac12$.
 
-Using the expectation formula from the hint,
+\solutioncontinuation{} Using the expectation formula from the hint,
 \[
 \mathbb E|u\cdot v|
 =\mathbb E|Z|
 =\int_{-1}^{1}|z|\frac12\,dz
 =\frac12.
 \]
-Thus the mean absolute dot product is $\boxed{\tfrac12}$.
+\solutioncontinuation{} Thus the mean absolute dot product is $\boxed{\tfrac12}$.
 Because $1/2<2/\pi$, randomly chosen unit vectors are, on average, closer to right angles in $\mathbb R^3$ than in $\mathbb R^2$. This supports the intuition behind Q7(iii), although it does not prove the conjecture: Q7(iii) additionally requires every pair in a large collection to form an acute angle.
 \end{document}
