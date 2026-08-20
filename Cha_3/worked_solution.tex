@@ -1,0 +1,407 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.85in}
+\newcommand{\solutionquestion}[1]{\par\leftskip=0pt\section*{Q#1}\leftskip=1em}
+\newcommand{\solutionpart}[1]{\par\smallskip\leftskip=1em\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{\textbf{(#1)}}\hspace{0.5em}\ignorespaces}
+\newcommand{\solutioncontinuation}{\par\leftskip=3em\noindent\ignorespaces}
+\title{Vector Spaces and Subspaces}\author{T.T.}\date{}
+\begin{document}\maketitle
+
+\solutionquestion{1}
+\solutionpart{i}The set $S_1$ is a subspace. It contains the zero vector, and if $u=(x_1,y_1,z_1)$ and $v=(x_2,y_2,z_2)$ belong to $S_1$, then for any $c,d\in\mathbb R$,
+\[
+c(x_1+y_1+z_1)+d(x_2+y_2+z_2)=0.
+\]
+Thus $cu+dv\in S_1$.
+
+\solutioncontinuation{} The set $S_2$ is not a subspace because it does not contain the zero vector.
+
+\solutioncontinuation{} The set $S_3$ is not a subspace. For example,
+\[
+u=(1,0,1),\qquad v=(0,1,1)
+\]
+both belong to $S_3$, but $u+v=(1,1,2)$ does not.
+
+\solutioncontinuation{} The set $S_4$ is a subspace by the definition of span. Any linear combination of vectors in $S_4$ is again a linear combination of $(1,4,0)$ and $(2,2,2)$.
+
+\solutioncontinuation{} The set $S_5$ is not a subspace. The vector $(0,1,2)$ belongs to $S_5$, but its negative $(0,-1,-2)$ does not satisfy $0\leq-1\leq-2$.
+
+\solutionpart{ii}Because $S$ and $T$ are subspaces, both contain the zero vector. Hence $0\in S\cap T$. Let $u,v\in S\cap T$ and let $c,d\in\mathbb R$. Since $u,v\in S$ and $S$ is a subspace,
+\[
+cu+dv\in S.
+\]
+The same argument gives $cu+dv\in T$. Therefore $cu+dv\in S\cap T$, and $S\cap T$ is a subspace of $V$.
+
+\solutionquestion{2}
+\solutionpart{i}Every vector in the column space of $[A\ b]$ has the form
+\[
+Ax+tb,
+\qquad x\in\mathbb R^n,\quad t\in\mathbb R.
+\]
+Suppose first that $b\in\mathcal C(A)$. Then $b=Ax_0$ for some $x_0\in\mathbb R^n$, and
+\[
+Ax+tb=A(x+tx_0)\in\mathcal C(A).
+\]
+Thus $\mathcal C([A\ b])\subseteq\mathcal C(A)$. The reverse inclusion follows by taking $t=0$, so the two column spaces are equal.
+
+\solutioncontinuation{} Conversely, suppose $\mathcal C([A\ b])=\mathcal C(A)$. The appended column $b$ belongs to $\mathcal C([A\ b])$, and therefore $b\in\mathcal C(A)$. Finally, by the definition of the column space,
+\[
+b\in\mathcal C(A)
+\quad\Longleftrightarrow\quad
+b=Ax\text{ for some }x\in\mathbb R^n.
+\]
+This is exactly the solvability of $Ax=b$.
+
+\solutionpart{ii}Let
+\[
+A=\begin{bmatrix}1&0\\0&0\end{bmatrix}.
+\]
+Its column space is the $x$-axis in $\mathbb R^2$. Appending
+\[
+b=\begin{bmatrix}0\\1\end{bmatrix}
+\]
+enlarges the column space to all of $\mathbb R^2$. By contrast, appending
+\[
+c=\begin{bmatrix}2\\0\end{bmatrix}
+\]
+does not enlarge it because $c$ already belongs to $\mathcal C(A)$.
+
+\solutionquestion{3}
+\solutionpart{i}With
+\[
+A=\begin{bmatrix}1&-3&-1\end{bmatrix},
+\qquad
+\mathbf{x}=\begin{bmatrix}x\\y\\z\end{bmatrix},
+\]
+the equation is $A\mathbf{x}=0$. The variable $x$ is a pivot variable, while $y$ and $z$ are free. Solving for the pivot variable gives
+\[
+x=3y+z.
+\]
+Therefore
+\[
+\mathbf{x}
+=y\begin{bmatrix}3\\1\\0\end{bmatrix}
++z\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+A basis for the nullspace is
+\[
+\left\{
+\begin{bmatrix}3\\1\\0\end{bmatrix},
+\begin{bmatrix}1\\0\\1\end{bmatrix}
+\right\}.
+\]
+
+\solutionpart{ii}A convenient particular solution is
+\[
+\mathbf{x}_p=\begin{bmatrix}12\\0\\0\end{bmatrix}.
+\]
+The complete solution is
+\[
+\mathbf{x}
+=\mathbf{x}_p+\mathbf{x}_n
+=\begin{bmatrix}12\\0\\0\end{bmatrix}
++s\begin{bmatrix}3\\1\\0\end{bmatrix}
++t\begin{bmatrix}1\\0\\1\end{bmatrix},
+\qquad s,t\in\mathbb R.
+\]
+This solution set is not a subspace because it does not contain the zero vector. It is an affine plane obtained by translating $\mathcal N(A)$ by $\mathbf{x}_p$.
+
+\solutionquestion{4}
+\solutionpart{i}Elimination on the augmented matrix begins with
+\[
+\begin{bmatrix}
+1&2&-2&b_1\\
+2&5&-4&b_2\\
+4&9&-8&b_3
+\end{bmatrix}.
+\]
+Apply $R_2\leftarrow R_2-2R_1$ and $R_3\leftarrow R_3-4R_1$:
+\[
+\begin{bmatrix}
+1&2&-2&b_1\\
+0&1&0&b_2-2b_1\\
+0&1&0&b_3-4b_1
+\end{bmatrix}.
+\]
+Then $R_3\leftarrow R_3-R_2$ gives
+\[
+\begin{bmatrix}
+1&2&-2&b_1\\
+0&1&0&b_2-2b_1\\
+0&0&0&b_3-b_2-2b_1
+\end{bmatrix}.
+\]
+The system is solvable if and only if
+\[
+b_3-b_2-2b_1=0.
+\]
+
+\solutionpart{ii}Assume that $b_3=b_2+2b_1$. The second equation gives
+\[
+y=b_2-2b_1.
+\]
+Choose the free variable $z=t$. The first equation then gives
+\[
+x=5b_1-2b_2+2t.
+\]
+Hence the complete solution is
+\[
+\begin{bmatrix}x\\y\\z\end{bmatrix}
+=\begin{bmatrix}5b_1-2b_2\\b_2-2b_1\\0\end{bmatrix}
++t\begin{bmatrix}2\\0\\1\end{bmatrix},
+\qquad t\in\mathbb R.
+\]
+The first vector is one particular solution, and the second term contains all homogeneous solutions.
+
+\solutionpart{iii}The echelon form has two pivots, so the coefficient matrix has rank $2$. Its nullspace is one-dimensional, with basis
+\[
+\left\{\begin{bmatrix}2\\0\\1\end{bmatrix}\right\}.
+\]
+
+\solutionquestion{5}
+Place $u_1,u_2,u_3$ into the columns of a matrix:
+\[
+U=\begin{bmatrix}
+1&2&3\\
+3&1&2\\
+2&3&1
+\end{bmatrix}.
+\]
+Apply $R_2\leftarrow R_2-3R_1$ and $R_3\leftarrow R_3-2R_1$, then exchange rows 2 and 3:
+\[
+U\longrightarrow
+\begin{bmatrix}
+1&2&3\\
+0&-1&-5\\
+0&-5&-7
+\end{bmatrix}.
+\]
+Finally, $R_3\leftarrow R_3-5R_2$ gives
+\[
+\begin{bmatrix}
+1&2&3\\
+0&-1&-5\\
+0&0&18
+\end{bmatrix}.
+\]
+There are three pivots, so the only solution of
+\[
+c_1u_1+c_2u_2+c_3u_3=0
+\]
+is $c_1=c_2=c_3=0$. Thus $u_1,u_2,u_3$ are linearly independent. Three independent vectors in $\mathbb R^3$ form a basis for $\mathbb R^3$.
+
+For the second triple,
+\[
+v_1+v_2+v_3=(0,0,0).
+\]
+This is a nontrivial linear relation, so $v_1,v_2,v_3$ are dependent and do not form a basis for $\mathbb R^3$.
+
+\solutionquestion{6}
+\solutionpart{i}Every polynomial in $\mathcal P_3$ has a unique representation
+\[
+p(x)=a_0+a_1x+a_2x^2+a_3x^3.
+\]
+Therefore
+\[
+\{1,x,x^2,x^3\}
+\]
+is a basis for $\mathcal P_3$, and $\dim\mathcal P_3=4$.
+
+\solutionpart{ii}The zero polynomial belongs to $S$. If $p,q\in S$ and $c,d\in\mathbb R$, then
+\[
+{(cp+dq)}(1)=cp(1)+dq(1)=0.
+\]
+Thus $cp+dq\in S$, and $S$ is a subspace.
+
+\solutioncontinuation{} The condition $p(1)=0$ gives
+\[
+a_0+a_1+a_2+a_3=0,
+\]
+so $a_0=-a_1-a_2-a_3$. Consequently,
+\[
+p(x)=a_1(x-1)+a_2(x^2-1)+a_3(x^3-1).
+\]
+The three polynomials $x-1$, $x^2-1$, and $x^3-1$ are linearly independent because their leading nonzero terms have different degrees. Hence
+\[
+\{x-1,x^2-1,x^3-1\}
+\]
+is a basis for $S$, and $\dim S=3$.
+
+\newpage
+\solutionquestion{7}
+\solutionpart{i}The second row of $A$ is twice the first, and every column is a multiple of $(1,2)$. Therefore $\operatorname{rank}(A)=1$. A basis for the column space is
+\[
+\left\{\begin{bmatrix}1\\2\end{bmatrix}\right\},
+\qquad \dim\mathcal C(A)=1,
+\]
+and a basis for the row space is
+\[
+\{(1,2,4)\},
+\qquad \dim\mathcal R(A)=1.
+\]
+The equation $Ax=0$ reduces to
+\[
+x_1+2x_2+4x_3=0.
+\]
+Thus
+\[
+x=
+x_2\begin{bmatrix}-2\\1\\0\end{bmatrix}
++x_3\begin{bmatrix}-4\\0\\1\end{bmatrix},
+\]
+so a basis for the nullspace is
+\[
+\left\{
+\begin{bmatrix}-2\\1\\0\end{bmatrix},
+\begin{bmatrix}-4\\0\\1\end{bmatrix}
+\right\},
+\qquad \dim\mathcal N(A)=2.
+\]
+Finally, $A^{T}y=0$ reduces to $y_1+2y_2=0$. A basis for the left nullspace is
+\[
+\left\{\begin{bmatrix}-2\\1\end{bmatrix}\right\},
+\qquad \dim\mathcal N(A^{T})=1.
+\]
+
+\solutionpart{ii}The first two columns of $B$ are independent because
+\[
+c_1\begin{bmatrix}1\\2\end{bmatrix}
++c_2\begin{bmatrix}2\\5\end{bmatrix}=0
+\]
+implies $c_1+2c_2=0$ and $2c_1+5c_2=0$, hence $c_1=c_2=0$. Therefore $\operatorname{rank}(B)=2$. A basis for the column space is
+\[
+\left\{
+\begin{bmatrix}1\\2\end{bmatrix},
+\begin{bmatrix}2\\5\end{bmatrix}
+\right\},
+\qquad \dim\mathcal C(B)=2.
+\]
+The two rows are also independent, so a basis for the row space is
+\[
+\{(1,2,4),(2,5,8)\},
+\qquad \dim\mathcal R(B)=2.
+\]
+Solving $Bx=0$ gives
+\[
+x_2=0,
+\qquad x_1=-4x_3.
+\]
+Therefore a basis for the nullspace is
+\[
+\left\{\begin{bmatrix}-4\\0\\1\end{bmatrix}\right\},
+\qquad \dim\mathcal N(B)=1.
+\]
+Since the columns span $\mathbb R^2$, the left nullspace contains only the zero vector. Its basis is empty and
+\[
+\dim\mathcal N(B^{T})=0.
+\]
+
+\solutionpart{iii}For $A$, the dimensions satisfy
+\[
+\dim\mathcal R(A)+\dim\mathcal N(A)=1+2=3
+\]
+and
+\[
+\dim\mathcal C(A)+\dim\mathcal N(A^{T})=1+1=2.
+\]
+The row-space basis vector is orthogonal to both nullspace basis vectors:
+\[
+(1,2,4)\cdot(-2,1,0)=0,
+\qquad
+(1,2,4)\cdot(-4,0,1)=0.
+\]
+The column-space and left-nullspace basis vectors are also orthogonal:
+\[
+(1,2)\cdot(-2,1)=0.
+\]
+
+\solutioncontinuation{} For $B$, the dimensions satisfy
+\[
+\dim\mathcal R(B)+\dim\mathcal N(B)=2+1=3
+\]
+and
+\[
+\dim\mathcal C(B)+\dim\mathcal N(B^{T})=2+0=2.
+\]
+The nullspace basis vector is orthogonal to both rows:
+\[
+(1,2,4)\cdot(-4,0,1)=0,
+\qquad
+(2,5,8)\cdot(-4,0,1)=0.
+\]
+The left nullspace is the zero space, which is orthogonal to every vector in $\mathcal C(B)$.
+
+\solutionquestion{8}
+\solutionpart{i}Write the columns of $B$ as $b_1,\ldots,b_p$. Then
+\[
+AB=\begin{bmatrix}Ab_1&\cdots&Ab_p\end{bmatrix}.
+\]
+Every column $Ab_j$ is a linear combination of the columns of $A$. Therefore
+\[
+\mathcal C(AB)\subseteq\mathcal C(A).
+\]
+Taking dimensions gives
+\[
+\operatorname{rank}(AB)\leq\operatorname{rank}(A).
+\]
+
+\solutionpart{ii}If $x\in\mathcal N(B)$, then $Bx=0$, and consequently
+\[
+ABx=A0=0.
+\]
+Thus $x\in\mathcal N(AB)$, proving that
+\[
+\mathcal N(B)\subseteq\mathcal N(AB).
+\]
+Both nullspaces are subspaces of $\mathbb R^p$, so
+\[
+\dim\mathcal N(B)\leq\dim\mathcal N(AB).
+\]
+By rank-nullity,
+\[
+p-\operatorname{rank}(B)
+\leq p-\operatorname{rank}(AB),
+\]
+and hence
+\[
+\operatorname{rank}(AB)\leq\operatorname{rank}(B).
+\]
+
+\solutionpart{iii}For every $x\in\mathbb R^n$,
+\[
+(C+D)x=Cx+Dx.
+\]
+Therefore every vector in $\mathcal C(C+D)$ belongs to the sum of subspaces
+\[
+\mathcal C(C)+\mathcal C(D)
+=\{u+v:u\in\mathcal C(C),\ v\in\mathcal C(D)\}.
+\]
+If bases for $\mathcal C(C)$ and $\mathcal C(D)$ contain $r_C$ and $r_D$ vectors, their union spans $\mathcal C(C)+\mathcal C(D)$. Consequently,
+\[
+\begin{aligned}
+\operatorname{rank}(C+D)
+&=\dim\mathcal C(C+D)\\
+&\leq\dim\bigl(\mathcal C(C)+\mathcal C(D)\bigr)\\
+&\leq r_C+r_D\\
+&=\operatorname{rank}(C)+\operatorname{rank}(D).
+\end{aligned}
+\]
+
+\solutionpart{iv}Take
+\[
+A=\begin{bmatrix}1&0\\0&0\end{bmatrix},
+\qquad
+B=\begin{bmatrix}0&0\\0&1\end{bmatrix}.
+\]
+Both $A$ and $B$ have rank $1$, while $AB=0$ has rank $0$. Hence
+\[
+\operatorname{rank}(AB)=0
+<\operatorname{rank}(A)=1
+\]
+and
+\[
+\operatorname{rank}(AB)=0
+<\operatorname{rank}(B)=1.
+\]
+
+\end{document}

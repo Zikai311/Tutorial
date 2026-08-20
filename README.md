@@ -26,23 +26,29 @@ Cha2
 - 2.7 Q2, Q12, and Q39 combined
 
 Cha3
-- 
--
--
--
--
--
+- 3.1 Q10 and Q15 combined
+- 3.1 Q23
+- 3.2 Q12--13 combined
+- 3.3 Q5
+- 3.4 Q5
+- 3.4 Q35
+- 3.5 Q2
+- 3.2 Q48--51 combined
 Cha4
-- 
--
--
--
--
--
+- 4.1 Q1, Q9, and Q16 combined
+- 4.1 Q21
+- 4.2 Q1 and Q3 combined
+- 4.2 Q11--12 combined
+- 4.2 Q17 and Q21--22 combined
+- 4.3 Q1 and Q17--18 rephrased
+- 4.4 Q23
+- 4.4 Q21 and the orthonormal projection formula combined
 Cha5
-- 
--
--
--
--
--
+- 5.1 Q13--15 rephrased
+- 5.1 Q1--3 combined
+- 5.2 Q11--12 combined
+- 5.1 Q22--23 rephrased
+- 5.3 Q1
+- 5.3 Q6 and Q8 combined
+- 5.3 Q16--17 combined
+- 5.3 Q11--12 combined

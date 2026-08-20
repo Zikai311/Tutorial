@@ -1,0 +1,309 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,amsmath,amssymb,geometry}
+\setmainfont{Times New Roman}\geometry{margin=0.85in}
+\newcommand{\solutionquestion}[1]{\par\leftskip=0pt\section*{Q#1}\leftskip=1em}
+\newcommand{\solutionpart}[1]{\par\smallskip\leftskip=1em\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{\textbf{(#1)}}\hspace{0.5em}\ignorespaces}
+\newcommand{\solutioncontinuation}{\par\leftskip=3em\noindent\ignorespaces}
+\title{Orthogonality}\author{T.T.}\date{}
+\begin{document}\maketitle
+
+\solutionquestion{1}
+\solutionpart{i}The two rows are multiples, so the row space has basis
+\[
+\{(1,2,1)\},\qquad \dim\mathcal R(A)=1.
+\]
+The columns are also multiples of ${(1,2)}^{T}$, so
+\[
+\{ {(1,2)}^{T} \}\text{ is a basis for }\mathcal C(A),\qquad \dim\mathcal C(A)=1.
+\]
+The equation $Ax=0$ reduces to
+\[
+x_1+2x_2+x_3=0.
+\]
+Thus
+\[
+x=x_2\begin{bmatrix}-2\\1\\0\end{bmatrix}
++x_3\begin{bmatrix}-1\\0\\1\end{bmatrix},
+\]
+and a basis for the nullspace is
+\[
+\left\{\begin{bmatrix}-2\\1\\0\end{bmatrix},
+\begin{bmatrix}-1\\0\\1\end{bmatrix}\right\},
+\qquad \dim\mathcal N(A)=2.
+\]
+Finally,
+\[
+{A}^{T}y=0\Longleftrightarrow y_1+2y_2=0,
+\]
+so a basis for the left nullspace is
+\[
+\left\{\begin{bmatrix}-2\\1\end{bmatrix}\right\},
+\qquad \dim\mathcal N({A}^{T})=1.
+\]
+
+\solutionpart{ii}The row-space basis vector is perpendicular to both nullspace basis vectors:
+\[
+(1,2,1)\cdot(-2,1,0)=0,
+\qquad
+(1,2,1)\cdot(-1,0,1)=0.
+\]
+The column-space and left-nullspace basis vectors satisfy
+\[
+(1,2)\cdot(-2,1)=0.
+\]
+These calculations verify the orthogonality relations for the four fundamental subspaces.
+
+\solutionquestion{2}
+\solutionpart{i}A vector $x=(x_1,x_2,x_3,x_4)$ belongs to $S^\perp$ exactly when
+\[
+x\cdot s_1=x_1+x_2=0,
+\qquad
+x\cdot s_2=x_2+x_3=0.
+\]
+Let $x_2=r$ and $x_4=s$. Then
+\[
+x=(-r,r,-r,s)
+=r(-1,1,-1,0)+s(0,0,0,1).
+\]
+Therefore a basis for $S^\perp$ is
+\[
+\{(-1,1,-1,0),(0,0,0,1)\}.
+\]
+
+\solutionpart{ii}Both $s_1$ and $s_2$ are perpendicular to the two displayed basis vectors of $S^\perp$. Hence $S\subseteq{(S^\perp)}^\perp$. The vectors $s_1$ and $s_2$ are independent, so $\dim S=2$. Since $\dim S^\perp=2$ in $\mathbb R^4$,
+\[
+\dim{(S^\perp)}^\perp=4-2=2.
+\]
+The inclusion is therefore between subspaces of the same dimension, and
+\[
+{(S^\perp)}^\perp=S.
+\]
+
+\solutionquestion{3}
+\solutionpart{i}The projection onto the line through $a$ has the form
+\[
+p=\frac{a^{T}b}{a^{T}a}a.
+\]
+Here
+\[
+a^{T}b=1\cdot2+2\cdot1+2\cdot1=6,
+\qquad a^{T}a=1+4+4=9.
+\]
+Therefore
+\[
+p=\frac23a=\begin{bmatrix}2/3\\4/3\\4/3\end{bmatrix},
+\qquad
+e=b-p=\begin{bmatrix}4/3\\-1/3\\-1/3\end{bmatrix}.
+\]
+
+\solutionpart{ii}We have
+\[
+a^{T}e=1\cdot\frac43+2\left(-\frac13\right)+2\left(-\frac13\right)=0,
+\]
+so $e\perp a$. Also,
+\[
+\|b\|^2=6,
+\qquad \|p\|^2=4,
+\qquad \|e\|^2=2.
+\]
+Thus $\|b\|^2=\|p\|^2+\|e\|^2$.
+
+\solutionpart{iii}The projection matrix is
+\[
+P=\frac{a{a}^{T}}{a^{T}a}
+=\frac19\begin{bmatrix}1&2&2\\2&4&4\\2&4&4\end{bmatrix}.
+\]
+Since $a^{T}a=9$,
+\[
+P^2=\frac{a{a}^{T}a{a}^{T}}{{(a^{T}a)}^2}
+=\frac{a(a^{T}a){a}^{T}}{{(a^{T}a)}^2}=P.
+\]
+
+\solutionquestion{4}
+\solutionpart{i}The columns of $A$ are ${(1,0,1)}^{T}$ and ${(0,1,1)}^{T}$. We have
+\[
+{A}^{T}A=\begin{bmatrix}2&1\\1&2\end{bmatrix},
+\qquad
+{A}^{T}b=\begin{bmatrix}1\\2\end{bmatrix}.
+\]
+The normal equations are
+\[
+\begin{bmatrix}2&1\\1&2\end{bmatrix}
+\begin{bmatrix}\widehat{x}_1\\\widehat{x}_2\end{bmatrix}
+=\begin{bmatrix}1\\2\end{bmatrix}.
+\]
+Since
+\[
+{({A}^{T}A)}^{-1}=\frac13\begin{bmatrix}2&-1\\-1&2\end{bmatrix},
+\]
+we obtain
+\[
+\widehat{x}=\begin{bmatrix}0\\1\end{bmatrix},
+\qquad
+p=A\widehat{x}=\begin{bmatrix}0\\1\\1\end{bmatrix}.
+\]
+
+\solutionpart{ii}The error is
+\[
+e=b-p=\begin{bmatrix}1\\1\\-1\end{bmatrix}.
+\]
+Its dot products with the columns of $A$ are
+\[
+(1,0,1)\cdot(1,1,-1)=0,
+\qquad
+(0,1,1)\cdot(1,1,-1)=0.
+\]
+Thus ${A}^{T}e=0$.
+
+\solutionpart{iii}Multiplying the matrices gives
+\[
+P=A{({A}^{T}A)}^{-1}{A}^{T}
+=\frac13\begin{bmatrix}
+2&-1&1\\
+-1&2&1\\
+1&1&2
+\end{bmatrix}.
+\]
+
+\solutionquestion{5}
+\solutionpart{i}Because ${A}^{T}A$ is symmetric, its inverse is symmetric. Therefore
+\[
+P^{T}={\left(A{({A}^{T}A)}^{-1}{A}^{T}\right)}^{T}
+=A{({A}^{T}A)}^{-1}{A}^{T}=P.
+\]
+Furthermore,
+\[
+\begin{aligned}
+P^2
+&=A{({A}^{T}A)}^{-1}{A}^{T}A{({A}^{T}A)}^{-1}{A}^{T}\\
+&=A{({A}^{T}A)}^{-1}({A}^{T}A){({A}^{T}A)}^{-1}{A}^{T}=P.
+\end{aligned}
+\]
+
+\solutionpart{ii}For every $b$, the vector $Pb$ is of the form $Ay$, so $Pb\in\mathcal C(A)$. Also,
+\[
+{A}^{T}(b-Pb)={A}^{T}b-{A}^{T}A{({A}^{T}A)}^{-1}{A}^{T}b=0.
+\]
+Thus $b-Pb\in\mathcal N({A}^{T})$, which is perpendicular to $\mathcal C(A)$. Hence $Pb$ is the projection of $b$ onto $\mathcal C(A)$.
+
+\solutionpart{iii}Since $P^{T}=P$ and $P^2=P$,
+\[
+{(I-P)}^{T}=I-P,
+\qquad
+{(I-P)}^2=I-2P+P^2=I-P.
+\]
+For any $b$, $P(I-P)b=Pb-P^2b=0$, so $(I-P)b$ is in the nullspace of $P$. If ${A}^{T}b=0$, then $Pb=0$. Conversely, if $Pb=0$, then $b=(I-P)b$, and
+\[
+{A}^{T}(I-P)b={A}^{T}b-{A}^{T}A{({A}^{T}A)}^{-1}{A}^{T}b=0.
+\]
+Thus the nullspace of $P$ is $\mathcal N({A}^{T})$, and $I-P$ projects onto that subspace.
+
+\solutionquestion{6}
+\solutionpart{i}The model is
+\[
+A\begin{bmatrix}c\\d\end{bmatrix}\approx b,
+\qquad
+A=\begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix},
+\qquad
+b=\begin{bmatrix}1\\2\\2\end{bmatrix}.
+\]
+The two normal equations are obtained from
+\[
+{A}^{T}A=\begin{bmatrix}3&3\\3&5\end{bmatrix},
+\qquad
+{A}^{T}b=\begin{bmatrix}5\\6\end{bmatrix}.
+\]
+Thus
+\[
+3c+3d=5,
+\qquad
+3c+5d=6.
+\]
+
+\solutionpart{ii}Subtracting the first equation from the second gives $2d=1$, so
+\[
+\widehat{d}=\frac12,
+\qquad
+\widehat{c}=\frac76.
+\]
+The fitted values are
+\[
+p=A\begin{bmatrix}7/6\\1/2\end{bmatrix}
+=\begin{bmatrix}7/6\\5/3\\13/6\end{bmatrix}.
+\]
+
+\solutionpart{iii}The residual is
+\[
+e=b-p=\begin{bmatrix}-1/6\\1/3\\-1/6\end{bmatrix}.
+\]
+The columns of $A$ are ${(1,1,1)}^{T}$ and ${(0,1,2)}^{T}$, and
+\[
+(1,1,1)\cdot e=0,
+\qquad
+(0,1,2)\cdot e=0.
+\]
+This is the normal-equation condition ${A}^{T}e=0$.
+
+\newpage
+\solutionquestion{7}
+\solutionpart{i}Set $q_1=a_1/\|a_1\|$. Then
+\[
+q_1=\frac{1}{\sqrt2}(1,1,0).
+\]
+The next orthogonal vector is
+\[
+v_2=a_2-(q_1^{T}a_2)q_1
+=\left(\frac12,-\frac12,1\right),
+\]
+so
+\[
+q_2=\frac{1}{\sqrt6}(1,-1,2).
+\]
+For the third vector,
+\[
+v_3=a_3-(q_1^{T}a_3)q_1-(q_2^{T}a_3)q_2
+=\frac23(-1,1,1).
+\]
+Therefore
+\[
+q_3=\frac{1}{\sqrt3}(-1,1,1).
+\]
+The three vectors are unit vectors and are mutually orthogonal by construction.
+
+\solutionpart{ii}The entries of $R={Q}^{T}A$ are $r_{ij}=q_i^{T}a_j$. Thus
+\[
+R=\begin{bmatrix}
+\sqrt2&1/\sqrt2&1/\sqrt2\\
+0&\sqrt6/2&1/\sqrt6\\
+0&0&2/\sqrt3
+\end{bmatrix}.
+\]
+Consequently $A=QR$, and $R$ is upper triangular.
+
+\solutionquestion{8}
+\solutionpart{i}The two columns of $Q$ are orthonormal, so ${Q}^{T}Q=I_2$. The coordinates of the projection are
+\[
+{Q}^{T}b=\begin{bmatrix}q_1^{T}b\\q_2^{T}b\end{bmatrix}
+=\begin{bmatrix}3/\sqrt2\\7/\sqrt6\end{bmatrix}.
+\]
+Therefore
+\[
+\begin{aligned}
+p=Q{Q}^{T}b
+&=\frac{3}{\sqrt2}q_1+\frac{7}{\sqrt6}q_2\\
+&=\begin{bmatrix}8/3\\1/3\\7/3\end{bmatrix}.
+\end{aligned}
+\]
+
+\solutionpart{ii}The error is
+\[
+e=b-p=\begin{bmatrix}-2/3\\2/3\\2/3\end{bmatrix}.
+\]
+Direct calculation gives
+\[
+q_1^{T}e=0,
+\qquad q_2^{T}e=0,
+\]
+and hence ${Q}^{T}e=0$. Thus the error is perpendicular to the whole column space of $Q$.
+
+\end{document}

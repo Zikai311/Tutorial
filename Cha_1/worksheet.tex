@@ -13,28 +13,28 @@
 \begin{chaptermap}\itshape Vectors are combined linearly; the dot product supplies length, angle, and orthogonality; matrices encode linear combinations and linear equations; independence and invertibility connect geometry with algebra.\end{chaptermap}
 \topic{\initial{V}ECTORS AND \initial{L}INEAR \initial{C}OMBINATIONS}
 \[v+w=(v_1+w_1,\ldots,v_n+w_n),\qquad cv=(cv_1,\ldots,cv_n).\]
-\textbf{Linear combination and span:} For $v_1,\ldots,v_n\in\mathbb R^m$ and $c_1,\ldots,c_n\in\mathbb R$, the vector $\sum_{j=1}^n c_jv_j$ is a linear combination. Its possible values form
-\[\operatorname{span}\{v_1,\ldots,v_n\}=\bigl\{\sum_{j=1}^n c_jv_j:c_j\in\mathbb R\bigr\}.\]
-\textbf{Matrix form:} If $A=\begin{bmatrix}a_1&\cdots&a_n\end{bmatrix}$ and $x=(x_1,\ldots,x_n)^T$, then $x_j$ is the coefficient of the $j$th column $a_j$:
-\[Ax=\sum_{j=1}^n x_ja_j=b.\]
-\textbf{Linear dependence theorem:} $v_1,\ldots,v_n$ are dependent iff $\sum_{j=1}^n c_jv_j=0$ for coefficients $c_j\in\mathbb R$ that are not all zero.
+\textbf{Linear combination and span:} For $v_1,\ldots,v_n\in\mathbb R^m$ and $c_1,\ldots,c_n\in\mathbb R$, the vector $\sum_{j=1}^n c_j v_j$ is a linear combination. Its possible values form
+\[\operatorname{span}\{v_1,\ldots,v_n\}=\bigl\{\sum_{j=1}^n c_j v_j:c_j\in\mathbb R\bigr\}.\]
+\textbf{Matrix form:} If $A=\begin{bmatrix}a_1&\cdots&a_n\end{bmatrix}$ and $x={(x_1,\ldots,x_n)}^{T}$, then $x_j$ is the coefficient of the $j$th column $a_j$:
+\[Ax=\sum_{j=1}^n x_j a_j=b.\]
+\textbf{Linear dependence theorem:} $v_1,\ldots,v_n$ are dependent iff $\sum_{j=1}^n c_j v_j=0$ for coefficients $c_j\in\mathbb R$ that are not all zero.
 \topic{\initial{D}OT \initial{P}RODUCTS AND \initial{G}EOMETRY}
-\[v\cdot w=v^Tw=\sum_{i=1}^n v_iw_i,\qquad \|v\|=\sqrt{v\cdot v}.\]
+\[v\cdot w=v^{T}w=\sum_{i=1}^n v_i w_i,\qquad \|v\|=\sqrt{v\cdot v}.\]
 \textbf{Cosine formula:} for nonzero $v,w$, $\displaystyle\cos\theta=\frac{v\cdot w}{\|v\|\|w\|}$.
-\textbf{Cauchy--Schwarz inequality:} $|v\cdot w|\leq\|v\|\|w\|$.
+\textbf{Cauchy-Schwarz inequality:} $|v\cdot w|\leq\|v\|\|w\|$.
 \textbf{Triangle inequality:} $\|v+w\|\leq\|v\|+\|w\|$.
 \textbf{Pythagorean theorem:} $v\cdot w=0\Rightarrow\|v+w\|^2=\|v\|^2+\|w\|^2$.
 \[\|v-w\|^2=\|v\|^2-2v\cdot w+\|w\|^2.\]
 \topic{\initial{M}ATRICES AND \initial{E}QUATIONS}
 \textbf{Invertibility criterion (square case):} $A$ is invertible iff $Ax=0$ has only $x=0$ iff its columns are independent; then $x=A^{-1}b$.
-\[AB=(Ab_1\ \cdots\ Ab_p),\quad (AB)^T=B^TA^T,\quad A(I)=A.\]
+\[AB=(Ab_1\ \cdots\ Ab_p),\quad {(AB)}^{T}=B^{T}A^{T},\quad A(I)=A.\]
 \newpage
 \setlength{\parindent}{0pt}
 \topic{\initial{P}ROBLEM \initial{S}ET}
 \question{1} Let $v=(v_1,v_2)$ and $w=(w_1,w_2)$ be nonzero vectors with $v_1w_1\neq0$. Suppose the product of the slopes of the lines joining the origin to $v$ and $w$ is $-1$. Show that $v\cdot w=0$, and hence that the vectors are perpendicular.
 
 \question{2}
-\subquestion{i}{Let $A\in\mathbb R^{m\times n}$ and $x\in\mathbb R^n$. For each $i$, let $r_i\in\mathbb R^n$ be the column vector whose transpose $r_i^T$ is the $i$th row of $A$. If $Ax=0$, show that $r_i\cdot x=0$ for every $i$.}
+\subquestion{i}{Let $A\in\mathbb R^{m\times n}$ and $x\in\mathbb R^n$. For each $i$, let $r_i\in\mathbb R^n$ be the column vector whose transpose $r_i^{T}$ is the $i$th row of $A$. If $Ax=0$, show that $r_i\cdot x=0$ for every $i$.}
 
 \subquestion{ii}{Hence explain why, when the rows span a plane in $\mathbb R^3$, that plane is perpendicular to $x$.}
 
@@ -43,7 +43,7 @@
 \[
 A=\begin{bmatrix}1&0&0\\-1&1&0\\1&-1&1\end{bmatrix},
 \]
-solve $Ax=b$ for an arbitrary $b=(b_1,b_2,b_3)^T$.}
+solve $Ax=b$ for an arbitrary $b={(b_1,b_2,b_3)}^{T}$.}
 
 \subquestion{ii}{State the inverse matrix $A^{-1}$.}
 

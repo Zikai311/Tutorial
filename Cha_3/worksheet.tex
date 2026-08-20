@@ -1,7 +1,12 @@
 \documentclass[11pt]{article}
 \usepackage{fontspec,amsmath,amssymb,geometry}
 \setmainfont{Times New Roman}\geometry{margin=0.7in}
-\newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}\newcommand{\initial}[1]{{\Large #1}}\newcommand{\result}[1]{\par\leftskip=0pt\medskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}\renewcommand{\textbf}[1]{\result{#1}}
+\newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}
+\newcommand{\initial}[1]{{\Large #1}}
+\newcommand{\question}[1]{\par\leftskip=0pt\medskip\noindent{\bfseries Q#1.}\par\nobreak\leftskip=1em\noindent}
+\newcommand{\subquestion}[2]{\par\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{(#1)}\hspace{0.5em}#2\par}
+\newcommand{\result}[1]{\par\leftskip=0pt\medskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}
+\renewcommand{\textbf}[1]{\result{#1}}
 \newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
 \title{Vector Spaces and Subspaces}\author{T.T.}\date{}
 \begin{document}\maketitle
@@ -9,14 +14,92 @@
 \topic{\initial{S}PACES AND \initial{S}UBSPACES}
 \textbf{Subspace test:} $S\le V$ iff $0\in S$ and $u,v\in S$, $c,d\in\mathbb R$ imply $cu+dv\in S$.
 \[\mathcal C(A)=\{Ax:x\in\mathbb R^n\}=\operatorname{span}\{a_1,\ldots,a_n\},\quad \mathcal N(A)=\{x:Ax=0\}.\]
-\[\mathcal R(A)=\operatorname{row}(A),\qquad \mathcal N(A^T)=\operatorname{left\ nullspace}(A).\]
-\textbf{Basis theorem:} a basis is an independent spanning set. Every vector has a unique coordinate representation $v=\sum c_iq_i$.
+\[\mathcal R(A)=\operatorname{row}(A),\qquad \mathcal N(A^{T})=\operatorname{left\ nullspace}(A).\]
+\textbf{Basis theorem:} a basis is an independent spanning set. Every vector has a unique coordinate representation $v=\sum c_i q_i$.
 \[\dim S=\text{number of vectors in any basis of }S.\]
 \textbf{Dimension theorem:} $\dim\mathcal C(A)=\operatorname{rank}(A)=\dim\mathcal R(A)$.
 \topic{\initial{R}ANK AND \initial{N}ULLITY}
-\textbf{Rank--nullity theorem:} for $A:m\times n$, $\dim\mathcal N(A)+\operatorname{rank}(A)=n$.
+\textbf{Rank-nullity theorem:} for $A:m\times n$, $\dim\mathcal N(A)+\operatorname{rank}(A)=n$.
 \[\dim\mathcal C(A)+\dim\mathcal N(A^T)=m.\]
 \textbf{Four-subspace dimension relations:} $\dim\mathcal R(A)=\dim\mathcal C(A)=r$, $\dim\mathcal N(A)=n-r$, $\dim\mathcal N(A^T)=m-r$.
 \textbf{Fundamental theorem:} $\mathcal R(A)\perp\mathcal N(A)$ and $\mathcal C(A)\perp\mathcal N(A^T)$.
 \[\operatorname{rank}(AB)\leq\min(\operatorname{rank}A,\operatorname{rank}B),\quad \operatorname{rank}(A+B)\leq\operatorname{rank}A+\operatorname{rank}B.\]
+\newpage
+\setlength{\parindent}{0pt}
+\topic{\initial{P}ROBLEM \initial{S}ET}
+
+\question{1}
+\subquestion{i}{Determine which of the following subsets of $\mathbb R^3$ are subspaces. Justify each answer using the subspace requirements.
+\[
+\begin{aligned}
+S_1&=\{(x,y,z):x+y+z=0\},\\
+S_2&=\{(x,y,z):x+y+z=1\},\\
+S_3&=\{(x,y,z):xyz=0\},\\
+S_4&=\operatorname{span}\{(1,4,0),(2,2,2)\},\\
+S_5&=\{(x,y,z):x\leq y\leq z\}.
+\end{aligned}
+\]}
+\subquestion{ii}{If $S$ and $T$ are subspaces of a vector space $V$, prove that $S\cap T$ is also a subspace of $V$.}
+
+\question{2} Let $A\in\mathbb R^{m\times n}$ and $b\in\mathbb R^m$, and let $[A\ b]$ denote the matrix obtained by appending $b$ as a new column.
+\subquestion{i}{Prove that
+\[
+\mathcal C([A\ b])=\mathcal C(A)
+\quad\Longleftrightarrow\quad
+b\in\mathcal C(A)
+\quad\Longleftrightarrow\quad
+Ax=b\text{ is solvable}.
+\]}
+\subquestion{ii}{Give one example in which appending $b$ enlarges the column space and one example in which it does not.}
+
+\question{3} Consider the equation
+\[
+x-3y-z=0.
+\]
+\subquestion{i}{Write the equation as $Ax=0$, identify the pivot and free variables, and find a basis for $\mathcal N(A)$.}
+\subquestion{ii}{Find the complete solution of $x-3y-z=12$ in the form $x_p+x_n$, where $x_n\in\mathcal N(A)$. Explain why this solution set is not a subspace.}
+
+\question{4} Consider the system
+\[
+\begin{aligned}
+x+2y-2z&=b_1,\\
+2x+5y-4z&=b_2,\\
+4x+9y-8z&=b_3.
+\end{aligned}
+\]
+\subquestion{i}{Use elimination on the augmented matrix to find the necessary and sufficient condition on $b_1,b_2,b_3$ for the system to be solvable.}
+\subquestion{ii}{When that condition holds, write the complete solution as one particular solution plus all solutions of the homogeneous system.}
+\subquestion{iii}{Identify the rank of the coefficient matrix and give a basis for its nullspace.}
+
+\question{5} Consider the two triples of vectors
+\[
+\begin{aligned}
+u_1&=(1,3,2),&u_2&=(2,1,3),&u_3&=(3,2,1),\\
+v_1&=(1,-3,2),&v_2&=(2,1,-3),&v_3&=(-3,2,1).
+\end{aligned}
+\]
+Determine whether each triple is linearly independent. Hence determine which triples are bases for $\mathbb R^3$. Use elimination or a direct linear relation; do not use determinants.
+
+\question{6} Let $\mathcal P_3$ be the vector space of real polynomials of degree at most $3$.
+\subquestion{i}{Give a basis for $\mathcal P_3$ and state its dimension.}
+\subquestion{ii}{Let $S=\{p\in\mathcal P_3:p(1)=0\}$. Prove that $S$ is a subspace of $\mathcal P_3$, then find a basis and the dimension of $S$.}
+
+\question{7} For each matrix
+\[
+A=\begin{bmatrix}1&2&4\\2&4&8\end{bmatrix},
+\qquad
+B=\begin{bmatrix}1&2&4\\2&5&8\end{bmatrix},
+\]
+\subquestion{i}{Find a basis and the dimension of each of the four fundamental subspaces associated with $A$.}
+\subquestion{ii}{Find a basis and the dimension of each of the four fundamental subspaces associated with $B$.}
+\subquestion{iii}{For both matrices, verify the rank-nullity relations and the orthogonality of the corresponding row and null spaces.}
+
+\question{8} Let $A\in\mathbb R^{m\times n}$ and $B\in\mathbb R^{n\times p}$.
+\subquestion{i}{Prove that $\mathcal C(AB)\subseteq\mathcal C(A)$ and hence that $\operatorname{rank}(AB)\leq\operatorname{rank}(A)$.}
+\subquestion{ii}{Prove that $\mathcal N(B)\subseteq\mathcal N(AB)$. Use rank-nullity to deduce that $\operatorname{rank}(AB)\leq\operatorname{rank}(B)$.}
+\subquestion{iii}{For matrices $C,D\in\mathbb R^{m\times n}$, prove that
+\[
+\operatorname{rank}(C+D)\leq\operatorname{rank}(C)+\operatorname{rank}(D).
+\]}
+\subquestion{iv}{Give an example for which both bounds $\operatorname{rank}(AB)\leq\operatorname{rank}(A)$ and $\operatorname{rank}(AB)\leq\operatorname{rank}(B)$ are strict.}
 \end{document}

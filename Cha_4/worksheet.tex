@@ -2,22 +2,84 @@
 \usepackage{fontspec,amsmath,amssymb,geometry}
 \setmainfont{Times New Roman}\geometry{margin=0.7in}
 \newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}\newcommand{\initial}[1]{{\Large #1}}\newcommand{\result}[1]{\par\leftskip=0pt\smallskip\noindent\hspace*{1em}{\bfseries #1}\par\nobreak\leftskip=1em\noindent}\renewcommand{\textbf}[1]{\result{#1}}
+\newcommand{\question}[1]{\par\leftskip=0pt\medskip\noindent{\bfseries Q#1.}\par\nobreak\leftskip=1em\noindent}
+\newcommand{\subquestion}[2]{\par\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{(#1)}\hspace{0.5em}#2\par}
 \newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
 \title{Orthogonality}\author{T.T.}\date{}
 \begin{document}\maketitle
 \begin{chaptermap}\itshape Orthogonality decomposes vectors and subspaces. Projections lead to orthogonal bases and least squares; the four fundamental subspaces describe the complete geometry of $Ax=b$.\end{chaptermap}
 \topic{\initial{O}RTHOGONAL \initial{C}OMPLEMENTS}
-\[V\perp W\Longleftrightarrow v^Tw=0\ \forall v\in V,w\in W,\qquad S^\perp=\{x:x^Ts=0\ \forall s\in S\}.\]
-\[\mathcal R(A)=\mathcal N(A)^\perp,\quad \mathcal N(A)=\mathcal R(A)^\perp,\quad \mathcal C(A)=\mathcal N(A^T)^\perp.\]
+\[V\perp W\Longleftrightarrow v^{T}w=0\ \forall v\in V,w\in W,\qquad S^\perp=\{x:x^{T}s=0\ \forall s\in S\}.\]
+\[\mathcal R(A)={\mathcal N(A)}^\perp,\quad \mathcal N(A)={\mathcal R(A)}^\perp,\quad \mathcal C(A)={\mathcal N({A}^{T})}^\perp.\]
 \[\mathbb R^n=\mathcal R(A)\oplus\mathcal N(A),\qquad x=x_r+x_n.\]
 \topic{\initial{P}ROJECTIONS}
-\textbf{Projection onto a line:} $\displaystyle \operatorname{proj}_a b=\frac{a^Tb}{a^Ta}a$.
+\textbf{Projection onto a line:} $\displaystyle \operatorname{proj}_a b=\frac{a^{T}b}{a^{T}a}a$.
 \[b=p+e,\quad p=\operatorname{proj}_a b,\quad e\perp a,\quad \|b\|^2=\|p\|^2+\|e\|^2.\]
-\textbf{Projection matrix:} $P=\frac{aa^T}{\|a\|^2}$, $P^2=P$, $P^T=P$.
-\textbf{Orthonormal columns:} $Q^TQ=I$, and projection onto $\mathcal C(Q)$ is $P=QQ^T$.
+\textbf{Projection matrix:} $P=\frac{a{a}^{T}}{\|a\|^2}$, $P^{2}=P$, $P^{T}=P$.
+\textbf{Orthonormal columns:} $Q^{T}Q=I$, and projection onto $\mathcal C(Q)$ is $P=QQ^{T}$.
 \topic{\initial{L}EAST \initial{S}QUARES}
-\textbf{Normal equations:} $A^TA\hat x=A^Tb$; residual $e=b-A\hat x$ satisfies $A^Te=0$.
-\[\hat x=(A^TA)^{-1}A^Tb,\qquad p=A\hat x=P b.\]
-\textbf{Gram--Schmidt:} $q_1=a_1/\|a_1\|$; $\displaystyle v_k=a_k-\sum_{j<k}(q_j^Ta_k)q_j$, $q_k=v_k/\|v_k\|$.
-\textbf{QR factorization:} $A=QR$, where $Q^TQ=I$ and $R$ is upper triangular.
+\textbf{Normal equations:} ${A}^{T}A\hat x={A}^{T}b$; residual $e=b-A\hat x$ satisfies ${A}^{T}e=0$.
+\[\hat x={(A^{T}A)}^{-1}{A}^{T}b,\qquad p=A\hat x=P b.\]
+\textbf{Gram-Schmidt:} $q_1=a_1/\|a_1\|$; $\displaystyle v_k=a_k-\sum_{j<k}(q_j^{T}a_k)q_j$, $q_k=v_k/\|v_k\|$.
+\textbf{QR factorization:} $A=QR$, where $Q^{T}Q=I$ and $R$ is upper triangular.
+\newpage
+\setlength{\parindent}{0pt}
+\topic{\initial{P}ROBLEM \initial{S}ET}
+
+\question{1} Let
+\[
+A=\begin{bmatrix}1&2&1\\2&4&2\end{bmatrix}.
+\]
+\subquestion{i}{Find a basis and the dimension of each of the four fundamental subspaces of $A$.}
+\subquestion{ii}{Verify directly that the row space is perpendicular to the nullspace, and that the column space is perpendicular to the left nullspace.}
+
+\question{2} Let $S\subseteq\mathbb R^4$ be spanned by
+\[
+s_1=(1,1,0,0),\qquad s_2=(0,1,1,0).
+\]
+\subquestion{i}{Find a basis for $S^\perp$.}
+\subquestion{ii}{Find ${\left(S^\perp\right)}^\perp$ and compare it with $S$.}
+
+\question{3} Let $a=(1,2,2)$ and $b=(2,1,1)$.
+\subquestion{i}{Find the projection $p$ of $b$ onto the line through $a$, and find the error $e=b-p$.}
+\subquestion{ii}{Verify that $e\perp a$ and that $\|b\|^2=\|p\|^2+\|e\|^2$.}
+\subquestion{iii}{Find the projection matrix $P$ onto the line through $a$, and verify that $P^{2}=P$.}
+
+\question{4} Let
+\[
+A=\begin{bmatrix}1&0\\0&1\\1&1\end{bmatrix},
+\qquad b=\begin{bmatrix}1\\2\\0\end{bmatrix}.
+\]
+\subquestion{i}{Use the normal equations ${A}^{T}A\widehat{x}={A}^{T}b$ to find the projection $p=A\widehat{x}$ of $b$ onto $\mathcal C(A)$.}
+\subquestion{ii}{Find the error $e=b-p$ and verify that it is perpendicular to both columns of $A$.}
+\subquestion{iii}{Find the projection matrix $P=A{(A^{T}A)}^{-1}{A}^{T}$.}
+
+\question{5} Let $A$ have independent columns and define
+\[
+P=A{(A^{T}A)}^{-1}{A}^{T}.
+\]
+\subquestion{i}{Prove that $P^{T}=P$ and $P^{2}=P$.}
+\subquestion{ii}{Show that $Pb$ is the projection of $b$ onto $\mathcal C(A)$ by proving that $Pb\in\mathcal C(A)$ and $b-Pb\in\mathcal N(A^{T})$.}
+\subquestion{iii}{Show that $I-P$ is the projection matrix onto $\mathcal N(A^{T})$.}
+
+\question{6} Fit the data $(t,b)=(0,1),(1,2),(2,2)$ by the least-squares line $b=c+dt$.
+\subquestion{i}{Write the system as $A\begin{bmatrix}c\\d\end{bmatrix}\approx b$ and form the normal equations.}
+\subquestion{ii}{Find $\widehat{c}$ and $\widehat{d}$, and hence find the fitted values $p$.}
+\subquestion{iii}{Find the residual $e=b-p$ and verify that it is perpendicular to both columns of $A$.}
+
+\newpage
+\question{7} Apply Gram-Schmidt to the columns
+\[
+a_1=(1,1,0),\qquad a_2=(1,0,1),\qquad a_3=(0,1,1).
+\]
+\subquestion{i}{Find an orthonormal basis $q_1,q_2,q_3$.}
+\subquestion{ii}{Write the matrix $A=\begin{bmatrix}a_1&a_2&a_3\end{bmatrix}$ as $A=QR$, where $Q=\begin{bmatrix}q_1&q_2&q_3\end{bmatrix}$.}
+
+\question{8} Let
+\[
+q_1=\frac{1}{\sqrt2}(1,1,0),\qquad q_2=\frac{1}{\sqrt6}(1,-1,2),
+\]
+and let $Q=\begin{bmatrix}q_1&q_2\end{bmatrix}$. For $b=(2,1,3)$,
+\subquestion{i}{Find the coordinates ${Q}^{T}b$ and the projection $p=Q{Q}^{T}b$ of $b$ onto $\mathcal C(Q)$.}
+\subquestion{ii}{Find the error $e=b-p$ and verify that ${Q}^{T}e=0$.}
 \end{document}
