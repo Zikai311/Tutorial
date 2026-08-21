@@ -45,10 +45,10 @@ Cha4
 - 4.4 Q21 and the orthonormal projection formula combined
 Cha5
 - 5.1 Q13--15 rephrased
-- 5.1 Q1--3 combined
-- 5.2 Q11--12 combined
-- 5.1 Q22--23 rephrased
-- 5.3 Q1
-- 5.3 Q6 and Q8 combined
-- 5.3 Q16--17 combined
+- 5.1 Q1--3 and 5.3 Q38 combined
+- 5.1 Q10
+- 5.1 determinant rules and singularity criterion combined
+- 5.1 Q8
 - 5.3 Q11--12 combined
+- 5.3 Q4 generalized
+- 5.3 direct proof of the cofactor formula

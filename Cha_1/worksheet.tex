@@ -2,6 +2,7 @@
 \usepackage{fontspec,amsmath,amssymb,geometry}
 \setmainfont{Times New Roman}\geometry{margin=0.65in}
 \newcommand{\topic}[1]{\par\leftskip=0pt\section*{\normalfont\large #1}}
+\newcommand{\formulatopic}[1]{\par\leftskip=0pt\medskip\noindent{\normalfont\large #1}\par\smallskip}
 \newcommand{\initial}[1]{{\Large #1}}
 \newcommand{\question}[1]{\par\leftskip=0pt\medskip\noindent{\bfseries Q#1.}\par\nobreak\leftskip=1em\noindent}
 \newcommand{\subquestion}[2]{\par\noindent\hangindent=2em\hangafter=1\makebox[1.5em][l]{(#1)}\hspace{0.5em}#2\par}
@@ -9,25 +10,31 @@
 \renewcommand{\textbf}[1]{\result{#1}}
 \newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
 \title{Introduction to Vectors}\author{T.T.}\date{}
-\begin{document}\maketitle\vspace{-1em}
-\begin{chaptermap}\itshape Vectors are combined linearly; the dot product supplies length, angle, and orthogonality; matrices encode linear combinations and linear equations; independence and invertibility connect geometry with algebra.\end{chaptermap}
-\topic{\initial{V}ECTORS AND \initial{L}INEAR \initial{C}OMBINATIONS}
+\begin{document}\maketitle\vspace{-2em}
+\begin{chaptermap}\noindent Linear algebra begins with two operations on vectors: addition and multiplication by numbers. Combining them produces linear combinations, which may fill a line, a plane, or a higher-dimensional space. The remarkable feature is that the same geometric picture remains correct even when the dimension is too high to draw.\par\smallskip{\footnotesize\raggedleft{}Adapted from Gilbert Strang, Chapter 1 introduction, p.~1.\par}\end{chaptermap}
+\begingroup
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\formulatopic{\initial{V}ECTORS AND \initial{L}INEAR \initial{C}OMBINATIONS}
 \[v+w=(v_1+w_1,\ldots,v_n+w_n),\qquad cv=(cv_1,\ldots,cv_n).\]
 \textbf{Linear combination and span:} For $v_1,\ldots,v_n\in\mathbb R^m$ and $c_1,\ldots,c_n\in\mathbb R$, the vector $\sum_{j=1}^n c_j v_j$ is a linear combination. Its possible values form
 \[\operatorname{span}\{v_1,\ldots,v_n\}=\bigl\{\sum_{j=1}^n c_j v_j:c_j\in\mathbb R\bigr\}.\]
 \textbf{Matrix form:} If $A=\begin{bmatrix}a_1&\cdots&a_n\end{bmatrix}$ and $x={(x_1,\ldots,x_n)}^{T}$, then $x_j$ is the coefficient of the $j$th column $a_j$:
 \[Ax=\sum_{j=1}^n x_j a_j=b.\]
 \textbf{Linear dependence theorem:} $v_1,\ldots,v_n$ are dependent iff $\sum_{j=1}^n c_j v_j=0$ for coefficients $c_j\in\mathbb R$ that are not all zero.
-\topic{\initial{D}OT \initial{P}RODUCTS AND \initial{G}EOMETRY}
+\formulatopic{\initial{D}OT \initial{P}RODUCTS AND \initial{G}EOMETRY}
 \[v\cdot w=v^{T}w=\sum_{i=1}^n v_i w_i,\qquad \|v\|=\sqrt{v\cdot v}.\]
 \textbf{Cosine formula:} for nonzero $v,w$, $\displaystyle\cos\theta=\frac{v\cdot w}{\|v\|\|w\|}$.
 \textbf{Cauchy-Schwarz inequality:} $|v\cdot w|\leq\|v\|\|w\|$.
 \textbf{Triangle inequality:} $\|v+w\|\leq\|v\|+\|w\|$.
 \textbf{Pythagorean theorem:} $v\cdot w=0\Rightarrow\|v+w\|^2=\|v\|^2+\|w\|^2$.
 \[\|v-w\|^2=\|v\|^2-2v\cdot w+\|w\|^2.\]
-\topic{\initial{M}ATRICES AND \initial{E}QUATIONS}
+\formulatopic{\initial{M}ATRICES AND \initial{E}QUATIONS}
 \textbf{Invertibility criterion (square case):} $A$ is invertible iff $Ax=0$ has only $x=0$ iff its columns are independent; then $x=A^{-1}b$.
 \[AB=(Ab_1\ \cdots\ Ab_p),\quad {(AB)}^{T}=B^{T}A^{T},\quad A(I)=A.\]
+\endgroup
 \newpage
 \setlength{\parindent}{0pt}
 \topic{\initial{P}ROBLEM \initial{S}ET}

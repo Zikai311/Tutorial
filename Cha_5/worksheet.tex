@@ -7,7 +7,7 @@
 \newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
 \title{Determinants}\author{T.T.}\date{}
 \begin{document}\maketitle
-\begin{chaptermap}\itshape Determinants assign a signed volume and test invertibility. Their defining properties yield row-operation rules, cofactor expansions, permutation formulas, and inverse formulas.\end{chaptermap}
+\begin{chaptermap}\noindent The determinant is a single number with an unusual amount of information about a matrix. It detects invertibility, records the effect of elimination, and eventually produces formulas for inverses and solutions. Its linearity applies to one row at a time: the tempting rule $\det(A+B)=\det A+\det B$ is false.\par\smallskip{\footnotesize\raggedleft{}Adapted from Gilbert Strang, Section 5.1, pp.~247--248.\par}\end{chaptermap}
 \topic{\initial{D}EFINITION AND \initial{P}ROPERTIES}
 \[\det I=1,\qquad \det(AB)=\det(A)\det(B),\qquad A\text{ invertible}\Longleftrightarrow\det A\ne0.\]
 \textbf{Row rules:} swapping rows changes the sign; multiplying a row by $c$ multiplies the determinant by $c$; adding a multiple of one row to another leaves it unchanged.
@@ -36,47 +36,48 @@
 \]
 State the determinant rule used at each step and identify the product of the pivots.
 
-\question{2} Let $A$ and $B$ be $4\times4$ matrices with $\det A=-2$ and $\det B=3$.
-\subquestion{i}{Find $\det(AB)$ and $\det({A}^{T})$.}
-\subquestion{ii}{Find $\det(A^{-1})$, $\det(A^{2})$, and $\det(2A)$.}
-
-\question{3} Let
+\question{2} Let $A$ be an $n\times n$ matrix and let $c\in\mathbb R$.
+\subquestion{i}{Use linearity in one row at a time to show that
 \[
-A=\begin{bmatrix}2&1&0\\1&3&2\\0&4&1\end{bmatrix}.
-\]
-\subquestion{i}{Find the cofactor matrix $C=(C_{ij})$ of $A$.}
-\subquestion{ii}{Use a cofactor expansion to find $\det A$.}
-\subquestion{iii}{Verify the identity $A{C}^{T}=(\det A)I$.}
+\det(cA)=c^n\det A.
+\]}
+\subquestion{ii}{If $A$ is $4\times4$ and $\det A=-2$, find $\det(2A)$, $\det({A}^{T}A)$, and $\det(A^{-1})$.}
+\subquestion{iii}{Show by a $2\times2$ counterexample that the determinant is not linear as a function of the whole matrix: in general, $\det(A+B)\ne\det A+\det B$.}
 
-\question{4} For
-\[
-A(t)=\begin{bmatrix}1&1&1\\1&t&2\\1&2&t\end{bmatrix},
-\]
-\subquestion{i}{Compute $\det A(t)$ by row operations.}
-\subquestion{ii}{For which values of $t$ is $A(t)$ invertible?}
-\subquestion{iii}{When $t=0$ or $t=2$, give a nonzero vector in the nullspace of $A(t)$.}
+\question{3} Let $A$ be an $n\times n$ matrix and let $\boldsymbol{1}={(1,\ldots,1)}^{T}$.
+\subquestion{i}{Suppose the entries in every row of $A$ add to zero. Show that $A\boldsymbol{1}=0$, and hence that $\det A=0$.}
+\subquestion{ii}{Suppose instead that the entries in every row add to one. Show that $\det(A-I)=0$.}
+\subquestion{iii}{Does the condition in part (ii) imply that $\det A=1$? Give a counterexample and explain what the condition actually proves.}
 
-\question{5} Use Cramer's rule to solve
-\[
-2x+y=1,\qquad x+2y+z=2,\qquad y+2z=3.
-\]
-Compute $\det A$ and the three determinants obtained by replacing one column of $A$ by $b$.
+\question{4} Let $A=\begin{bmatrix}a_1&\cdots&a_n\end{bmatrix}$ be an $n\times n$ matrix.
+\subquestion{i}{Assume that the columns of $A$ are linearly dependent. Use linearity of the determinant in one column and the repeated-column rule to prove that $\det A=0$.}
+\subquestion{ii}{Prove the converse using the connection between the determinant and invertibility.}
+\subquestion{iii}{Explain why this equivalence agrees with the volume interpretation of $|\det A|$.}
 
-\question{6} Use the cofactor formula to find the inverse of
-\[
-A=\begin{bmatrix}1&2&0\\2&1&1\\0&1&1\end{bmatrix}.
-\]
-Verify the result by multiplication.
+\question{5} Let $Q$ be a real orthogonal matrix, so that ${Q}^{T}Q=I$.
+\subquestion{i}{Prove that $\det Q=1$ or $\det Q=-1$.}
+\subquestion{ii}{For a $2\times2$ orthogonal matrix, write its first column as ${ (\cos\theta,\sin\theta) }^{T}$. Show that its second column must be either ${ (-\sin\theta,\cos\theta) }^{T}$ or ${ (\sin\theta,-\cos\theta) }^{T}$, and identify the determinant in each case.}
 
-\question{7}
-\subquestion{i}{Find the area of the parallelogram spanned by $u=(3,2)$ and $v=(1,4)$.}
-\subquestion{ii}{Find the volume of the parallelepiped spanned by
-\[
-u=(1,1,0),\qquad v=(1,0,1),\qquad w=(0,1,1).
-\]
-}
-
-\question{8} Suppose that $A$ is an invertible matrix with integer entries.
+\newpage
+\question{6} Suppose that $A$ is an invertible matrix with integer entries.
 \subquestion{i}{Prove that if $\det A=1$ or $\det A=-1$, then every entry of $A^{-1}$ is an integer.}
 \subquestion{ii}{Prove the converse: if both $A$ and $A^{-1}$ have integer entries, then $\det A=1$ or $\det A=-1$.}
+
+\question{7} Let $A=\begin{bmatrix}a_1&\cdots&a_n\end{bmatrix}$ be invertible, and let $A_j(b)$ denote the matrix obtained by replacing column $j$ of $A$ by $b$. Suppose that $Ax=b$.
+\subquestion{i}{Write $b$ as a linear combination of the columns of $A$.}
+\subquestion{ii}{Use linearity of the determinant in column $j$ to show that
+\[
+\det A_j(b)=x_j\det A.
+\]
+Explain why every other term in the expansion is zero.}
+\subquestion{iii}{Deduce Cramer's rule.}
+
+\question{8} Let $C=(C_{ij})$ be the cofactor matrix of an $n\times n$ matrix $A$.
+\subquestion{i}{Show that every diagonal entry of $A{C}^{T}$ equals $\det A$.}
+\subquestion{ii}{Show that every off-diagonal entry of $A{C}^{T}$ is zero. Hint: interpret it as a cofactor expansion of a matrix with two equal rows.}
+\subquestion{iii}{Deduce the identity
+\[
+A{C}^{T}=(\det A)I,
+\]
+and hence derive the cofactor formula for $A^{-1}$ when $\det A\ne0$.}
 \end{document}

@@ -7,7 +7,7 @@
 \newenvironment{chaptermap}{\begin{center}\begin{minipage}{0.82\textwidth}\small}{\end{minipage}\end{center}\medskip}
 \title{Orthogonality}\author{T.T.}\date{}
 \begin{document}\maketitle
-\begin{chaptermap}\itshape Orthogonality decomposes vectors and subspaces. Projections lead to orthogonal bases and least squares; the four fundamental subspaces describe the complete geometry of $Ax=b$.\end{chaptermap}
+\begin{chaptermap}\noindent Projection splits a vector into two parts: one in a chosen subspace and one perpendicular to it. For the $z$-axis and the $xy$-plane, the two parts add back to the original vector, while the two projection matrices add to the identity. The same picture extends from this simple case to every subspace of $\mathbb R^m$.\par\smallskip{\footnotesize\raggedleft{}Adapted from Gilbert Strang, Section 4.2, p.~207.\par}\end{chaptermap}
 \topic{\initial{O}RTHOGONAL \initial{C}OMPLEMENTS}
 \[V\perp W\Longleftrightarrow v^{T}w=0\ \forall v\in V,w\in W,\qquad S^\perp=\{x:x^{T}s=0\ \forall s\in S\}.\]
 \[\mathcal R(A)={\mathcal N(A)}^\perp,\quad \mathcal N(A)={\mathcal R(A)}^\perp,\quad \mathcal C(A)={\mathcal N({A}^{T})}^\perp.\]
